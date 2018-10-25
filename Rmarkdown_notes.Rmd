@@ -1,0 +1,79 @@
+---
+title: "Manuscripts in Rmarkdown"
+author: "Brad Duthie"
+date: "25 October 2018"
+output: html_document
+---
+
+Some notes to get started:
+
+- Introduce the general idea of WYSIWYG and word processors, contrasting with DOCX files
+- Introduce non-WYSIWYG markup langauges (like HTML)
+- Discuss LaTeX and Word, and the costs and benefits of each
+- Present Rmarkdown as a sort of compromise between the two, usable easily in Rstudio
+- Discuss the costs and benefits of Rmarkdown, particularly in the context of scientific writing
+- Emphasise that LaTeX code can be integrated, as can R code, and a PDF, HTML, or DOCX can be produced with Knitr
+
+Show how to do this:
+
+- Start by introducing the environment in Rstudio
+    - The text-editor area
+    - The Knit button
+    - The [YAML header](https://en.wikipedia.org/wiki/YAML), and that we will build off of it
+- Next just focus on writing a very brief Abstract
+    - Summarise the paper to be written
+    - Add some comments to show how this is done
+- Show how to use the Knit button to produce a PDF of the abstract
+- Add a two paragraph introduction, complete with a few references.
+    - One paragraph on the story of Bumpus
+    - A second paragraph on what this paper will do
+- Now introduce how to incorporate the references using a very small bibtex file
+    - Insert a references section at the end
+    - Produce the PDF again, showing the abstract, introduction, and references
+    - Now show the same thing, but producing an HTML instead
+    - Finally, produce a DOCX instead
+        - But wait, this looks weird; can't we make it nicer?
+        - Introduce a template DOCX file so that it can be made to look like a manuscript
+    - Show a revised DOCX that could be sent to colleagues
+- Write up a quick methods section
+    - A short paragraph on sparrows
+    - Add a picture of a sparrow as Figure 1
+    - State that we're going to compare bird length in living versus dead sparrows
+    - Will use a simple t-test in R
+    - Stop to show the result as a PDF
+- Write up a Results section
+    - Show how to read data into Rmarkdown
+    - Do the analysis in R within the results section
+    - Show how to output summary statistics and statistical test results from the analysis
+    - Make plots inside R markdown that show up in the results
+    - Stop to show the result as a PDF
+- Write up a Discussion section
+    - Very brief summary of the results
+    - Focus more on on explaining how this is all done in Rmarkdown
+    - Add some embedded links, maybe some other Rmarkdown tricks
+    - Show the finish product as a PDF, HTML, and word
+
+Point out where everything is to replicate all of the above (make this a single folder)
+
+- The Rmd file itself
+- The data
+- The images
+- The bibtex file
+- The relevant DOCX template
+
+Discuss some other features that are useful once you get the hang of things
+
+- Easy switch between formats using CSL files
+- Beautiful mathematics using LaTeX
+- Add LaTeX packages, such as headers
+- Links to different sections of the document 
+- Add some of these, then produce a new PDF and DOCX
+- Link to a few manuscripts written in Rmarkdown
+- Show how to convert a Rmd to a TEX file
+
+Emphasise that anyone who wants to do the same as above can fork the [GitHub Repository](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) and insert their own text. Point out the benefit of being able to use version control with the Rmd file. 
+
+Make some concluding points to distinguish between what I've done above that is important, and what is arbitrary and really just my own style (e.g., how to organise the directory). Mention that the same Rmarkdown code used to make documents is also the basis for making slides in Rmarkdown, an example of which will be available in a link in the repository. Also discuss that this is the first step toward creating shiny, interactive, documents and slides.
+
+
+
