@@ -48,7 +48,66 @@ Most biologists write manuscripts in Miscrosoft Word. There is nothing wrong wit
 
 **In the short-term, however, the biggest practical difference between Rmarkdown and Word is the writing environment**. It is easy to see what the output of a Word document is going to look like while it is being written; [what you see is what you get (WYSIWYG)](https://en.wikipedia.org/wiki/WYSIWYG). In Rmarkdown, this is not the case. Writing is done in plain text, and the final output looks different from how the content looks while it is being written. In this way, writing in Rmarkdown is more similar to writing in [LaTeX](https://en.wikipedia.org/wiki/LaTeX), another plain text writing tool that can produce nice looking [PDF outputs](https://www.biorxiv.org/content/biorxiv/early/2017/09/24/136093.full.pdf), but has a [high learning curve](https://github.com/bradduthie/pre_post_cop/blob/master/pre_post_biorxiv.tex) to use effectively. The separation between plain text writing and final output can be a bit intimidating at first, or at least a bit unintuitive, but there are many practical reasons for it. Having everything assembled at once and only when desired means that key processes (e.g., paragraph formatting, text spacing, addition of references, etc.) do not need to be ongoing *during* the writing process, and this tends to make the organisation and type-setting of the final document look more professional. More subtley, it allows writers to separate the **content** of the writing from the **output**. If a formatting error occurs in Word (e.g., tabs or a figure are out of place), then it immediately disrupts the thought process of writing; by isolating the written content from how it looks in the output, such disruptions do not occur. Nevertheless, getting used to this type of workflow takes some time. 
 
-In the next section, I will ease the reader into this work flow by demonstrating a simple example of how Rmarkdown can be used to write a manuscipt abstract, then 'knit' this abstract into an HTML, PDF, or DOCX output.
+In the next section, I will ease the reader into this work flow by introducing the Rstudio environment for writing in Rmarkdown, demonstrate a simple example of how Rmarkdown can be used to write a manuscipt abstract, then 'knit' this abstract into an HTML, PDF, or DOCX output.
+
+Writing an abstract in Rstudio
+================================================================================
+
+After opening Rstudio, the option to create a new Rmarkdown file can be accessed by navigating to 'File', scrolling down to 'New File', then selecting 'R Markdown...'. Alternatively, it can be accessed by selecting the icon directly below 'File' (see below) and choosing 'R Markdown...'. 
+
+<br>
+<center>
+![](images/top_bar.png)
+</center>
+<br>
+
+In either case, a box will pop up that looks like the one below, which asks for a title and author. It will also ask for a default output format, but this really is not important to specify; all will be possible and easy to choose regardless of the default selected.
+
+<br>
+<center>
+![](images/new_Rmarkdown.png)
+</center>
+<br>
+
+In addition to writing an Rmarkdown document, the options on the left also allow for writing a presentation or [shiny](https://shiny.rstudio.com/) document in Rmarkdown. I will not discuss how to do this in the current document, but a general understanding of Rmarkdown will make creating slides and shiny presentations much easier. After clicking 'OK', Rstudio will create a new Rmarkdown document, complete with some sample text that looks something like the below (the colour scheme might differ, of course).
+
+<br>
+<center>
+![](images/default_rmd.png)
+</center>
+<br>
+
+This code is demonstrating some of the features of Rmarkdown, including the integration of R code directly into the document. Seeing the output of this is possible by simply clicking the 'Knit' button in the tool bar, as shown below.
+
+<br>
+<center>
+![The 'Knit' pull-down option is shown in blue](images/Rstudio_toolbar.png)
+</center>
+<br>
+
+Clicking the 'Knit' button will produce an HTML (or PDF or DOCX) with the R analysis run as written in the code; the output should appear when finished in whatever format has been requested. If there are package missing that are needed to knit everything properly, Rstudio will ask to install these first. This simple starting example provides a flavour of what Rmarkdown is capable of doing, but I want to instead start from scratch and focus on process of writing an abstract. I will therefore remove everything after line 5 above until the Rmd file looks like the below.
+
+```{YAML}
+---
+title: "Untitled"
+output: html_document
+---
+    
+```
+
+The text between the top and bottom `---` dashes is a [YAML header](https://en.wikipedia.org/wiki/YAML) header (YAML stands for 'Yet Another Markup Language'). It is not important to understand YAML or know how this header works; it is actually entirely optional. But keeping it in place is helpful, and as I continue to write my example manuscript, I will add to it to show some useful tricks. The first such trick will be to add a title, subtitle and author, which is shown below.
+
+```{YAML}
+---
+title: "High sparrow body length decreases survival"
+subtitle: "A demonstration of Rmarkdown using Herman Bumpus' data"
+author: Brad Duthie
+output: html_document
+---
+    
+```
+
+Essentially, the YAML header allows authors to specify key information to be used when producing the final document (i.e., meta data). I will now move onto the Rmarkdown text itself, starting with the abstract title and the abstract itself.
 
 
 ********************************************************************************
