@@ -3,10 +3,10 @@ title: "High sparrow body length decreases survival"
 author: "Brad Duthie"
 csl: evolution.csl
 output:
-  html_document: default
-  pdf_document: default
   word_document:
     reference_docx: docx_template.docx
+  html_document: default
+  pdf_document: default
 link-citations: yes
 linkcolor: blue
 linestretch: 2
