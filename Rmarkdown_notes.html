@@ -274,12 +274,12 @@ Darwin, C. (1859). The Origin of Species. New York: Penguin.
 
 Johnston, R. F., Niles, D. M., &amp; Rohwer, S. A. (1972). Hermon Bumpus and natural selection in the House Sparrow *Passer domesticus*. Evolution, 26, 20–31.</code></pre>
 <p>Adding the above sections to the document ‘ms.Rmd’ and using knit to make document such as <a href="https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_intro.html">this HTML</a> works fine (see the <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/551d51f3cccadc2b17bb9cea74c9f72569d2e68d/ms.pdf">PDF</a> or <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/551d51f3cccadc2b17bb9cea74c9f72569d2e68d/ms.docx">DOCX</a> here). Manually adding references becomes time consuming, however, and it would be more efficient to get Rstudio to do all of the referencing for us instead. <strong>Below, I will demonstrate how do to everything above using BibTeX</strong>.</p>
-<p>The idea of using BibTeX is to avoid having to manually format references, and instead type in a unique ‘key’ whenever a references is cited. In addition to <strong>automatically building the reference section</strong> of a manuscript, using BibTeX can allow authors to change reference styles without having to manually reformat anything (e.g., if a manuscript needs to be submitted to a different journal). <strong>Here is how it works</strong>; a separate text file with the extensions ‘.bib’ is created with all of the information needed to produce a bibliography. For the three references used above, this BIB file would look like the below.</p>
+<p>The idea of using BibTeX is to avoid having to manually format references, and instead type in a unique ‘key’ whenever a references is cited. In addition to <strong>automatically building the reference section</strong> of a manuscript, using BibTeX can allow authors to change reference styles without having to manually reformat anything (e.g., if a manuscript needs to be submitted to a different journal). <strong>Here is how it works</strong>; a separate text file with the extensions ‘.bib’ is created with all of the information needed to produce a bibliography. For the three references used above, this BIB file would look like the below (I have removed an extra set of brackets around the titles below, which are usually needed but cause a page build failure in GitHub).</p>
 <pre><code>@article{Bumpus1898,
 author = {Bumpus, Hermon C},
 journal = {Biological Lectures: Woods Hole Marine Biological Laboratory},
 pages = {209--225},
-title = {{Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, {\it Passer domesticus}. (A fourth contribution to the study of variation.)}},
+title = {Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, {\it Passer domesticus}. (A fourth contribution to the study of variation.)},
 year = {1898}
 }
 @book{Darwin1859,
@@ -287,14 +287,14 @@ address = {New York},
 author = {Darwin, Charles},
 pages = {495},
 publisher = {Penguin},
-title = {{The Origin of Species}},
+title = {The Origin of Species},
 year = {1859}
 }
 @article{Johnston1972,
 author = {Johnston, R F and Niles, D M and Rohwer, S A},
 journal = {Evolution},
 pages = {20--31},
-title = {{Hermon Bumpus and natural selection in the House Sparrow \textit{Passer domesticus}}},
+title = {Hermon Bumpus and natural selection in the House Sparrow {\it Passer domesticus}},
 volume = {26},
 year = {1972}
 }</code></pre>
