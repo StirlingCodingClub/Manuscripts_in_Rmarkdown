@@ -7,8 +7,9 @@ output:
   pdf_document: default
   word_document:
     reference_docx: docx_template.docx
-linkcolor: blue
 link-citations: yes
+linkcolor: blue
+linestretch: 2
 subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
 bibliography: refs.bib
 ---
@@ -24,6 +25,31 @@ Introduction
 In the late 1800s, there was a particulalry severe snowstorm in Providence, Rhode Island. At the time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic data set in biology, and have been analysed multiple times [e.g., @Johnston1972]. Here I will use Bumpus' data to demonstrate how to write a scientific manuscript in Rmarkdown.
 
 The focus of this manuscript is therefore not on Bumpus' data or survival of sparrows *per se*, but the process of scientific writing using Rmarkdown. I have chosen the Bumpus data set because it provides a useful tool for working through most key features of Rmarkdown that scientists might want to use when writing a manuscript. The example question that I will address through this data set and R analysis in Rmarkdown is whether or not increasing sparrow body length is associated with decreased survival following a storm.
+
+Methods
+================================================================================
+
+Bumpus focused his study on the House Sparrow (*Passer domesticus*; see Figure 1), which has a very wide global distribution. It is native to Europe and Asia, but not the Americas where Bumpus collected his original study [@Bumpus1898]. In addition to measuring total length and survival for 136 sparrows, Bumpus measured sparrow sex, wingspan, and mass, and also the length of each sparrow's head, humerus, tibiotarsus, skull, and sternum. While modern ornithologists believe that the total body length measurement that I will use today is subject to high observational error [@Johnston1972], it will be more than sufficient for demonstrating Rmarkdown.
+
+<!--- Note that the image below is in the public domain --->
+<!--- https://commons.wikimedia.org/wiki/File:Lto-tpbo-passer-domesticus-05.JPG --->
+<center>
+
+![*Passer domesticus*](images/sparrow.jpg)
+
+</center>
+
+I performed an independent two-sample student's t-test on sparrow total body length to test whether or not sparrows that died in the 1898 storm were larger than sparrows that survived. I assume that both groups of sparrows (dead and living) have equal variances, so the test statistic $t$ is calculated as follows,
+
+$$t = \frac{\bar{X}_{1} - \bar{X}_{2}} {s_{p} \times \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}}.$$
+
+In the above, $\bar{X}_{1}$ and $\bar{X}_{2}$ are the mean of the samples of sparrows that died and lived, respectively. Similarly, $n_{1}$ and $n_{2}$ are the sample sizes of sparrows that died and lived, and $s_{p}$ is the pooled sample mean, which is calculated as follows,
+
+$$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}}.$$
+
+In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conduceted the two sample t-test using the `t.test` function in R [@R2018].
+
+
 
 References
 ===============================================================================
