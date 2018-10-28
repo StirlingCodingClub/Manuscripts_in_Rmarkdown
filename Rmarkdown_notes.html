@@ -279,7 +279,7 @@ Johnston, R. F., Niles, D. M., &amp; Rohwer, S. A. (1972). Hermon Bumpus and nat
 author = {Bumpus, Hermon C},
 journal = {Biological Lectures: Woods Hole Marine Biological Laboratory},
 pages = {209--225},
-title = {{Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, \textit{Passer domesticus}. (A fourth contribution to the study of variation.)}},
+title = {{Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, {\it Passer domesticus}. (A fourth contribution to the study of variation.)}},
 year = {1898}
 }
 @book{Darwin1859,
@@ -299,8 +299,8 @@ volume = {26},
 year = {1972}
 }</code></pre>
 <p>The ‘@’ in the above specifies the type of reference used, and key for each reference is located after the opening <code>{</code> bracket (e.g., the first key is <code>Bumpus1989</code> – note that keys are case sensitive; it matters which letters are upper versus lower case). Remaining tags (e.g., title, year, author) are specified within the outer brackets. I can put all of the key information above into the BIB file manually and save the above to its own file <a href>refs.bib</a>. Some <a href="https://www.openoffice.org/bibliographic/bibtex-defs.html">helpful hints</a> for different BibTeX tags can be found online, but I have tried to include most of the obvious ones for books and articles above. <strong>Note that some reference managers will create BibTeX files automatically, greatly speeding up the process.</strong> For example, to create a BIB file in <a href="https://www.mendeley.com/?interaction_required=true">Mendeley</a> (which is <a href="https://www.mendeley.com/download-desktop/">free to download</a>), highlight all the documents in Mendeley to be included, then go to ‘File &gt; Export’; Mendeley will open a prompt to save as a BIB file, and this file should be saved in the same directory as the manuscript. Because I am lazy with this, I tend to simply highlight all of the documents in my Mendeley desktop and export them wherever I need to – this creates a BIB file with thousands of entries, but those not used in a document will simply be ignored.</p>
-<p>As a side note, unfortunately, BIB files use LaTeX code rather than Rmarkdown to format text. The only place where this is likely to become important is when words in the BIB file need to be italicised (e.g., scientific names). I have shown how to do that above in two of the titles; see <code>\textit{Passer domesticus}</code>.</p>
-<p>Now that I have created the <a href>refs.bib</a> BibTeX file, I need to tell the ms.Rmd file to use it to build references, then replace manually added parenthetical citations with citation keys. To do this requires an addition to the YAML header of ms.Rmd, which now looks like the below.</p>
+<p>As a side note, unfortunately, BIB files use LaTeX code rather than Rmarkdown to format text. The only place where this is likely to become important is when words in the BIB file need to be italicised (e.g., scientific names). I have shown how to do that above in two of the titles; see <code>{\it Passer domesticus}</code>.</p>
+<p>Now that I have created the <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/refs.bib">refs.bib</a> BibTeX file, I need to tell the ms.Rmd file to use it to build references, then replace manually added parenthetical citations with citation keys. To do this requires an addition to the YAML header of ms.Rmd, which now looks like the below.</p>
 <pre class="yaml"><code>---
 title: &quot;High sparrow body length decreases survival&quot;
 author: &quot;Brad Duthie&quot;
