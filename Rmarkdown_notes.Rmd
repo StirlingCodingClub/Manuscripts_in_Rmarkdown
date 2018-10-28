@@ -25,6 +25,7 @@ Contents
     - [Writing an abstract in Rstudio (the basics)](#abstract)
     - [Writing an introduction in Rstudio (citations)](#intro)
     - [Writing methods in Rstudio (images & equations)](#methods)
+    - [Writing results in Rstudio (integrating R)](#results)
 
 ********************************************************************************
 
@@ -338,12 +339,56 @@ References
 
 The `<div id="refs"></div>` locks the references wherever the should be placed. If a page break is desired after, it can be inserted on a new line by typing `\clearpage` (this obviously is not the case for HTML documents, which are not organised into pages). 
 
-
 <a name="methods">Writing methods in Rstudio (images & equations)</a>
 ================================================================================
 
+In writing the methods section, I want to focus specifically on the inclusion of images and equations into the text. Images are included using the code `![Image legend](path/to/image.jpg)` (the extension need not be JPG). No changes to the YAML header need to be made to do this. The first part of the Methods section will include a [public domain image of a sparrow](https://commons.wikimedia.org/wiki/File:Lto-tpbo-passer-domesticus-05.JPG).
 
+```
+Methods
+================================================================================
 
+Bumpus focused his study on the House Sparrow (*Passer domesticus*; see Figure 1), which has a very wide global distribution. It is native to Europe and Asia, but not the Americas where Bumpus collected his original study [@Bumpus1898]. In addition to measuring total length and survival for 136 sparrows, Bumpus measured sparrow sex, wingspan, and mass, and also the length of each sparrow's head, humerus, tibiotarsus, skull, and sternum. While modern ornithologists believe that the total body length measurement that I will use today is subject to high observational error [@Johnston1972], it will be more than sufficient for demonstrating Rmarkdown.
+
+<!--- Note that the image below is in the public domain --->
+<!--- https://commons.wikimedia.org/wiki/File:Lto-tpbo-passer-domesticus-05.JPG --->
+<center>
+
+![*Passer domesticus*](images/sparrow.jpg)
+
+</center>
+```
+
+In addition to the image inserted above, there are a couple additional things to note. First, the HTML script `<center>` is used, and other HTML scripts generally work with Rmarkdown (common ones that I use are `<br>` and `<hr>`). Second, notes can be written in the Rmarkdown file itself by enclosing as comments within `<!---` and `--->`. Anything that is put between them `<!--- like this --->` will not show up in the HTML, PDF, or DOCX output, so this can be used to write notes within Rmd (e.g., to comment on the text itself, as might be done using the comments feature in the margins of DOCX files in Word). 
+
+Next, equations can be added to the text in the style of LaTeX. This feature is very useful because LaTeX produces highly professional looking equations, and these carry over to Rmarkdown. Learning the code to write these equations takes some time though, and at first requires a lot of [looking up code online](https://en.wikibooks.org/wiki/LaTeX/Mathematics). Below I include an example of what Rmarkdown can do with two key equations used in the Student's t-test.
+
+```
+I performed an independent two-sample student's t-test on sparrow total body length to test whether or not sparrows that died in the 1898 storm were larger than sparrows that survived. I assume that both groups of sparrows (dead and living) have equal variances, so the test statistic $t$ is calculated as follows,
+
+$$t = \frac{\bar{X}_{1} - \bar{X}_{2}} {s_{p} \times \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}}.$$
+
+In the above, $\bar{X}_{1}$ and $\bar{X}_{2}$ are the mean of the samples of sparrows that died and lived, respectively. Similarly, $n_{1}$ and $n_{2}$ are the sample sizes of sparrows that died and lived, and $s_{p}$ is the pooled sample mean, which is calculated as follows,
+
+$$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}}.$$
+
+In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conduceted the two sample t-test using the `t.test` function in R [@R2018].
+```
+
+The equations are within the `$$` signs on a line of their own. Whenever an equation takes a line of its own, two `$$` encompass the equation. If an equation occurs within line, then only a single `$` is used  (e.g., `$e^{i \pi} + 1 = 0$` becomes $e^{i \pi} + 1 = 0$). The two equations shown above become,
+
+$$t = \frac{\bar{X}_{1} - \bar{X}_{2}} {s_{p} \times \sqrt{\frac{1}{n_{1}} + \frac{1}{n_{2}}}},$$
+
+and, 
+
+$$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}},$$
+
+respectively. The whole methods are shown in context in the [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_evolution.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/74c62583e36934b6400214a18bc9793932438fc3/ms.pdf), and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/74c62583e36934b6400214a18bc9793932438fc3/ms.docx) outputs. In the next section, I will finally get to explaining the integration of R within Rmarkdown.
+
+<a name="results">Writing results in Rstudio (integrating R)</a>
+================================================================================
+
+In this section, we finally get to the integration of R into the Rmarkdown document. I will demonstrate how to load the data file `data/Bumpus_data.csv`, analyse the data,  integrate key summary statistics into the body of the text, and present tables and figures made using R code.
 
 
 ********************************************************************************
