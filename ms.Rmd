@@ -3,7 +3,8 @@ title: "High sparrow body length decreases survival"
 author: "Brad Duthie"
 subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
 output:
-  word_document: default
+  word_document:
+      reference_docx: docx_template.docx
   pdf_document: default
   html_document: default
 ---

@@ -154,11 +154,25 @@ output:
 ---
 ```
 
-Now there are two options available (`pdf_document` and `html_document`), and Rstudio has produced the same manuscript file as a PDF rather than an HTML. Of course, many journals and colleagues prefer to read and receive manuscripts as DOCX files, so now is also a good time to use the knit pull-down menu and choose the 'Knit to Word' option to create a DOCX that can be opened and edited in Microsoft Word or some other word processor (e.g., [Libre Office](https://www.libreoffice.org/)). Again, Rmarkdown adjusts the YAML header to include a `word_document` in the output and produces a DOCX version of 'ms.Rmd'. 
+Now there are two options available (`pdf_document` and `html_document`), and Rstudio has produced the same [manuscript file as a PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/98457a6bbf0e51d4300fe8213159f775d2d75966/ms.pdf) rather than [an HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_abstract.html). Of course, many journals and colleagues prefer to read and receive manuscripts as DOCX files, so now is also a good time to use the knit pull-down menu and choose the 'Knit to Word' option to create a DOCX that can be opened and edited in Microsoft Word or some other word processor (e.g., [Libre Office](https://www.libreoffice.org/)). Again, Rmarkdown adjusts the YAML header to include a `word_document` in the output and produces a DOCX version of 'ms.Rmd'. 
 
-Note that the DOCX version is formatted a bit strangely, with titles coloured in light blue, which is not really desirable for scientific manuscripts. Other formatting issues leave a lot to be desired; the text is not double-spaced and there are no line or page numbers. To fix this, we could edit these formatting options directly in Word, but this would be tedious because it would be necessary to repeat this every time a new DOCX was created using the knit function in Rstudio. Instead, **we can ensure that the created DOCX is formatted as desired every time by using a template DOCX**. 
+Note that [the DOCX version](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/98457a6bbf0e51d4300fe8213159f775d2d75966/ms.docx) is formatted a bit strangely (clicking the link should start a download of the DOCX from GitHub), with titles coloured in light blue, which is not really desirable for scientific manuscripts. Other formatting issues leave a lot to be desired; the text is not double-spaced and there are no line or page numbers. To fix this, we could just edit these formatting options directly in Word, but this would be tedious because it would be necessary to repeat this every time a new DOCX was created using the knit function in Rstudio. Instead, **we can ensure that the created DOCX is formatted as desired every time by using a template DOCX**.  This template document is formatted in Word (or Libre Office) as desired, and Rstudio recognises these formats and uses them to create a new 'ms.docx'. Here is an example of a template document ('docx_template.docx') that I have created that is formatted in a way that is more useful for scientific manuscripts. To use it, the template document needs to be placed in the same folder as the manuscript file 'ms.Rmd', and we need to adjust the YAML header of 'ms.Rmd' as below.
 
+```{YAML}
+---
+title: "High sparrow body length decreases survival"
+author: "Brad Duthie"
+subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
+output:
+  word_document:
+      reference_docx: docx_template.docx
+  pdf_document: default
+  html_document: default
+---
 
+```
+
+Importantly, **the 'default' following 'word_document' above has been removed**. This tells Rmarkdown not to just go with the defaults for creating a DOCX file; the indented 'refrence_docx' specifies to use 'docx_template.docx' as the template instead.
 
 
 ********************************************************************************
