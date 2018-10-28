@@ -107,7 +107,33 @@ output: html_document
     
 ```
 
-Essentially, the YAML header allows authors to specify key information to be used when producing the final document (i.e., meta data). I will now move onto the Rmarkdown text itself, starting with the abstract title and the abstract itself.
+Essentially, the YAML header allows authors to specify key information to be used when producing the final document (i.e., meta data). I will now move onto the Rmarkdown text itself, starting with the abstract title and the abstract itself. Directly below the YAML header, I will add the text below.
+
+```
+---
+title: "High sparrow body length decreases survival"
+subtitle: "A demonstration of Rmarkdown using Herman Bumpus' data"
+author: Brad Duthie
+output: html_document
+---
+    
+Abstract
+===============================================================================
+  
+Writing documents in Rmarkdown using Rstudio can make scientific workflow more efficient, and here I demonstrate how a scientific manuscript can be written using a classical data set first published by Herman Bumpus. I integrate Bumpus' data with Rmarkdown to produce a sample manuscript, testing whether or not sparrow body length decreases survival following a storm in southern New England. Using a t-test, I show that surviving birds have lower body length than birds that do not survive. All analyses of data are incorporated into the underlying Rmarkdown document, including figures and a table. References are incorporated using BibTeX. The underlying code for this manuscript is publicly available [on GitHub](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) as part of the Stirling Coding Club organisation.
+```
+
+Two things are worth pointing out in the code above. First, the extended `===` underneath the word 'Abstract'; this tells Rmarkdown to create a title in the output. Second, the words 'on GitHub' make a link to the Stirling Coding Club website; the square brackets indicate the words to appear linked `[on GitHub]`, while the parentheses that immediately follow specify the URL. Both of these tools are available in basic markdown too (i.e., .md files). 
+
+We can take a quick break here and see what the output of the document looks like as an HTML file. I have saved the file above as 'ms.Rmd', and we can see the output by clicking the 'Knit' button in the Rstudio toolbar.
+
+<br>
+<center>
+![The 'Knit' pull-down option is shown in blue](images/Rstudio_toolbar.png)
+</center>
+<br>
+
+Here is what the output looks like in HTML.
 
 
 ********************************************************************************
