@@ -133,7 +133,32 @@ We can take a quick break here and see what the output of the document looks lik
 </center>
 <br>
 
-Here is what the output looks like in HTML.
+[Here](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_abstract.html) is what the output looks like in HTML. The title, subtitle, and author have been included, the abstract is recognised as a title, and the link is included appropriately. Of course, in most cases, the output of a manuscrpit would be much better as a PDF or DOCX than an HTML file. To instead get a PDF, it is easy to simply select the pull down from the 'Knit' button and choose 'PDF' instead of 'HTML'. 
+
+<br>
+<center>
+![The 'Knit' pull-down option is shown in blue](images/knit_pulldown.png)
+</center>
+<br>
+
+Rstudio immediately starts to produce a file 'ms.pdf' instead of 'ms.html', and adjust the YAML header of 'ms.Rmd' to include a PDF output, as shown below.
+
+```{YAML}
+---
+title: "High sparrow body length decreases survival"
+author: "Brad Duthie"
+subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
+output:
+  pdf_document: default
+  html_document: default
+---
+```
+
+Now there are two options available (`pdf_document` and `html_document`), and Rstudio has produced the same manuscript file as a PDF rather than an HTML. Of course, many journals and colleagues prefer to read and receive manuscripts as DOCX files, so now is also a good time to use the knit pull-down menu and choose the 'Knit to Word' option to create a DOCX that can be opened and edited in Microsoft Word or some other word processor (e.g., [Libre Office](https://www.libreoffice.org/)). Again, Rmarkdown adjusts the YAML header to include a `word_document` in the output and produces a DOCX version of 'ms.Rmd'. 
+
+Note that the DOCX version is formatted a bit strangely, with titles coloured in light blue, which is not really desirable for scientific manuscripts. Other formatting issues leave a lot to be desired; the text is not double-spaced and there are no line or page numbers. To fix this, we could edit these formatting options directly in Word, but this would be tedious because it would be necessary to repeat this every time a new DOCX was created using the knit function in Rstudio. Instead, **we can ensure that the created DOCX is formatted as desired every time by using a template DOCX**. 
+
+
 
 
 ********************************************************************************
