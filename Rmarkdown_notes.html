@@ -483,18 +483,33 @@ Overall, this document demonstrates how high quality, professional looking docum
 </div>
 <div id="writing-an-appendix-in-rstudio-tables" class="section level1">
 <h1><a name="appendix">Writing an Appendix in Rstudio (tables)</a></h1>
+<p>Lastly, at the end of the <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd">ms.Rmd</a> document, I have added an appendix with the code below.</p>
+<pre><code>&lt;a name=&quot;appendix&quot;&gt;Appendix Table 1&lt;/a&gt;
+================================================================================
+
+An example table is shown below, which includes all of the variables collected by @Bumpus1898 for the first 10 measured sparrows. The full data set can be found online in [GitHub](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/data/Bumpus_data.csv).
+
+'''{r, echo = FALSE}
+library(knitr);
+kable(x = dat[1:10,], caption = &quot;First ten rows of the original data set collected by Hermon Bumpus&quot;);
+'''</code></pre>
+<p>This appendix produced by the above code creates a table of the first 10 rows of Bumpus’ data set. This is done using the <code>kable</code> funciton in the <code>knitr</code> R package, which must be called within Rmarkdown to work properly (the <code>knitr</code> package can be downloaded using the command <code>install.packages(&quot;knitr&quot;)</code>).</p>
+<p>The final output is shown in <a href="https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_final.html">HTML</a>, <a href>PDF</a>, and <a href>DOCX</a> formats. Readers that can apply the code underlying this output in their own manuscripts should have all of the tools that they need to get started writing scientific manuscripts in Rmarkdown.</p>
 </div>
 <div id="concluding-remarks" class="section level1">
 <h1><a name="conclusion">Concluding remarks</a></h1>
-<hr />
-<ul>
-<li>Show how to convert a Rmd to a TEX file</li>
-</ul>
-<p>Emphasise that anyone who wants to do the same as above can fork the <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown">GitHub Repository</a> and insert their own text. Point out the benefit of being able to use version control with the Rmd file.</p>
-<p>Make some concluding points to distinguish between what I’ve done above that is important, and what is arbitrary and really just my own style (e.g., how to organise the directory). Mention that the same Rmarkdown code used to make documents is also the basis for making slides in Rmarkdown, an example of which will be available in a link in the repository. Also discuss that this is the first step toward creating shiny, interactive, documents and slides.</p>
+<p>There are a few small notes to include in finishing up these notes. First, I want to re-emphasise that these notes are free to share and use, and that anyone is very welcome to fork the <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown">GitHub Repository</a> associated with these notes and use the file <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd">ms.Rmd</a> as a template for writing their own manuscripts. Some of the techniques that I have presented in these notes are matters of my own organisational style, and should not necessarily be taken as required protocol; when in doubt, the best thing to do is experiment by changing the code and attempting to knit to see how the output changes as a result.</p>
+<p><strong>Knowing how to write manuscripts in Rmarkdown will also make it easier to learn how to write slide presentations, and to start using <a href="https://shiny.rstudio.com/">shiny</a>.</strong> Nearly all of the tricks that I have presented could just as easily be used in making HTML slide presentations, which is the way that I typically write presentations (see <a href="https://github.com/StirlingCodingClub/version_control/blob/master/vc_presentation.Rmd">here</a> for the code underlying <a href="https://stirlingcodingclub.github.io/version_control/vc_presentation.html#1">some slides</a> on version control).</p>
+<p>Most readers will have collaborators who will prefer to work in Microsoft Word, and this should be relatively easy given the ability of Rmarkdown to create DOCX files as output. Less commonly, some collaborators, journals, or pre-print servers (e.g. <a href="https://arxiv.org/">arXiv</a>) will require LaTeX files. <a href="https://gist.github.com/JJ/ef9d3d8f1142df064bd5">Here</a> is a miniature how-to on how to create TEX files from Rmarkdown. Essentially, this requires an additional argument to the PDF output in the YAML header.</p>
+<pre class="yaml"><code>output:
+  pdf_document:
+    keep_tex: true</code></pre>
+<p>The <code>keep_tex: true</code> keeps the intermediate TEX files, which can then be gathered to make the LaTeX document.</p>
+<pre><code>tar cvfz filename.tgz filename.tex filename_files</code></pre>
+<p>Lastly, I have focused specifically on how to get started writing manuscripts in Rmarkdown. My objective was to focus on what needs to be done rather than the details of how Rmarkdown works. Another excellent tutorial is available at the Edinburgh Coding Club’s website <a href="https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html">here</a>. Rstudio also has its own introduction to Rmarkdown <a href="https://rmarkdown.rstudio.com/">here</a> and <a href="https://rmarkdown.rstudio.com/lesson-1.html">here</a>, and <a href="https://yihui.name/">Yihui Xie</a> has written an entire book on the subject that is <a href="https://bookdown.org/yihui/rmarkdown/">freely available online</a>. All of these are excellent resources for learning more about Rmarkdown.</p>
 </div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
+<div id="reference" class="section level1 unnumbered">
+<h1>Reference</h1>
 <div id="refs" class="references">
 <div id="ref-Xie2018">
 <p>Xie, Yihui, J J Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, FL: Chapman; Hall/CRC.</p>
