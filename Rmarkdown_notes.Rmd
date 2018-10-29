@@ -26,6 +26,7 @@ Contents
     - [Writing an introduction in Rstudio (citations)](#intro)
     - [Writing methods in Rstudio (images & equations)](#methods)
     - [Writing results in Rstudio (integrating R)](#results)
+    - [Writing a Discussion in Rstudio (final tips)](#discussion)
 
 ********************************************************************************
 
@@ -388,8 +389,65 @@ respectively. The whole methods are shown in context in the [HTML](https://stirl
 <a name="results">Writing results in Rstudio (integrating R)</a>
 ================================================================================
 
-In this section, we finally get to the integration of R into the Rmarkdown document. I will demonstrate how to load the data file `data/Bumpus_data.csv`, analyse the data,  integrate key summary statistics into the body of the text, and present tables and figures made using R code.
+In this section, we finally get to the integration of R into the Rmarkdown document. I will demonstrate how to load the data file `data/Bumpus_data.csv`, analyse the data, integrate key summary statistics into the body of the text, and present tables and figures made using R code. All of the data analysis can happen in the background of the Rmarkdown document, with the text output displaying only what is desired. This is done by calling R directly in the Results section of ms.Rmd as follows. Note that in the below, to avoid confusing Rmarkdown, I have replaced all [grave accents](https://en.wikipedia.org/wiki/Grave_accent) ($`$ and $```$) with [apostrophes](https://en.wikipedia.org/wiki/Apostrophe) ($'$ and $'''$) .
 
+```
+Results
+===============================================================================
+
+'''{r, echo = FALSE, eval = TRUE}
+dat  <- read.csv(file = "data/Bumpus_data.csv");
+res  <- t.test(formula = dat$totlen ~ dat$surv, alternative = "less", 
+               var.equal = TRUE); # Two sample t-test results
+tval <- as.numeric(res$statistic); # Get the t-test statistic
+pval <- res$p.value; # Get the p value from the t-test results
+live <- as.numeric(res$estimate[1]); # Get mean length of living sparrows
+dead <- as.numeric(res$estimate[2]); # Get mean length of dying sparrows
+'''
+
+Bumpus' data included 'r sum(dat$surv == "alive")' sparrows that lived and 'r sum(dat$surv == "dead")' sparrows that died. The mean total length of living sparrows was 'r round(live, digits = 2)' mm, and the mean total length of dead sparrows was 'r round(dead, digits = 2)' mm. The two sample t-test revealed a t-statistic of 'r round(tval, digits = 2)', which corresponds to a p-value of $P =$ 'r round(pval, digits = 5)'. 
+```
+
+```{r, echo = FALSE, eval = TRUE}
+dat  <- read.csv(file = "data/Bumpus_data.csv");
+res  <- t.test(formula = dat$totlen ~ dat$surv, alternative = "less", 
+               var.equal = TRUE); # Two sample t-test results
+tval <- as.numeric(res$statistic); # Get the t-test statistic
+pval <- res$p.value; # Get the p value from the t-test results
+live <- as.numeric(res$estimate[1]); # Get mean length of living sparrows
+dead <- as.numeric(res$estimate[2]); # Get mean length of dying sparrows
+```
+
+In the above the `echo = FALSE` option in `{r, echo = FALSE}` tells R not to print any of the code that follows. It will, however *evaluate* the code in R (to have it not evaluate, set `eval = FALSE`). Hence, the results of the data analysis in `res` and the variables pulled from `res` (`tval`, `pval`, `live`, and `dead` in the above) can be used and printed out as desired. This is what is being done in the paragraph that follows. Hence when I write 'r sum(dat$surv == "alive")' (but with grave accents rather than the apostraphes I just used), R calculates the total sum of surviving sparrows just as it would in the normal R console. The leading 'r' tells Rmarkdown to evaluate everything between the grave accents, then print it as plain text; in this case the value `r sum(dat$surv == "alive")`. All of the code in the short paragraph above ultimately produces text that looks like the below.
+
+> Bumpus' data included `r sum(dat$surv == "alive")` sparrows that lived and `r sum(dat$surv == "dead")` sparrows that died. The mean total length of living sparrows was `r round(live, digits = 2)` mm, and the mean total length of dead sparrows was `r round(dead, digits = 2)` mm. The two sample t-test revealed a t-statistic of `r round(tval, digits = 2)`, which corresponds to a p-value of $P =$ `r round(pval, digits = 5)`.
+
+This can be seen more clearly in the Results section of [ms.Rmd](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd). Note that this is only a greatly simplified example; it is entirely possible to do much more complex analyses, including reading in multiple packages, from within Rmarkdown. It is also easy to **embed figures directly into Rmarkdown documents** in the same way that they would be produced by the R console. In other words, there is no need to create an image file and then embed it as I did with the picture of the sparrow; Rmarkdown takes care of the image making directly from the R code.
+
+```
+'''{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
+par(mar = c(5, 5, 1, 1));
+plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
+     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+'''
+```
+
+The option `echo = FALSE` in this case tells Rmarkdown not to print the code itself in the document; only the figure will be printed below. The fig height and width can be specified as above, and the figure caption appears below the figure itself, which looks like the below.
+
+********************************************************************************
+
+```{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
+par(mar = c(5, 5, 1, 1));
+plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
+     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+```
+
+********************************************************************************
+
+A major benefit of using Rmarkdown to make figures rather than first saving them as an image file (e.g., JPG, PNG, etc.) is that if the data or analyses ever change, then the figure does not need to be remade and resaved. **Because the link from raw data to output is preserved seamlessly by Rmarkdown, any change to the data will result in updated result output and figures**. The manuscript as written up through the results can be viewed for [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_results.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/b2445dcf69d7c0f9c1f118c1695009644f6aeee6/ms.pdf), and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/b2445dcf69d7c0f9c1f118c1695009644f6aeee6/ms.docx) outputs. In the next section, I will finish the manuscript with a brief Discussion that will focus on some final tips for using Rmarkdown in writing a manuscript.
+
+<a name="discussion">Writing a Discussion in Rstudio (final tips)</a>
+================================================================================
 
 ********************************************************************************
 
