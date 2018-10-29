@@ -3,10 +3,10 @@ title: "High sparrow body length decreases survival"
 author: "Brad Duthie"
 csl: evolution.csl
 output:
-  word_document:
-    reference_docx: docx_template.docx
   html_document: default
   pdf_document: default
+  word_document:
+    reference_docx: docx_template.docx
 link-citations: yes
 linkcolor: blue
 linestretch: 2
@@ -49,7 +49,37 @@ $$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}}.$$
 
 In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conduceted the two sample t-test using the `t.test` function in R [@R2018].
 
+Results
+===============================================================================
 
+```{r, echo = FALSE, eval = TRUE}
+dat  <- read.csv(file = "data/Bumpus_data.csv");
+res  <- t.test(formula = dat$totlen ~ dat$surv, alternative = "less", 
+               var.equal = TRUE); # Two sample t-test results
+tval <- as.numeric(res$statistic); # Get the t-test statistic
+pval <- res$p.value; # Get the p value from the t-test results
+live <- as.numeric(res$estimate[1]); # Get mean length of living sparrows
+dead <- as.numeric(res$estimate[2]); # Get mean length of dying sparrows
+```
+
+Bumpus' data included `r sum(dat$surv == "alive")` sparrows that lived and `r sum(dat$surv == "dead")` sparrows that died. The mean total length of living sparrows was `r round(live, digits = 2)` mm, and the mean total length of dead sparrows was `r round(dead, digits = 2)` mm. The two sample t-test revealed a t-statistic of `r round(tval, digits = 2)`, which corresponds to a p-value of $P =$ `r round(pval, digits = 5)`. 
+
+```{r, echo = FALSE, eval = TRUE}
+total_len_alive <- dat$totlen[dat$surv == "alive"];
+total_len_dead  <- dat$totlen[dat$surv == "dead"];
+summary_alive   <- summary(total_len_alive);
+summary_dead    <- summary(total_len_dead);
+```
+
+Figure 2 shows the difference between total length in sparrows that survived versus sparrows that died. Overall, dead sparrows were `r round(dead - live, digits = 2)` mm longer than living sparrows, and ranged between `r as.numeric(summary_dead[1])` and `r as.numeric(summary_dead[5])` mm. Living sparrows ranged between  `r as.numeric(summary_alive[1])` and `r as.numeric(summary_alive[5])` mm (Figure 2).
+
+```{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
+par(mar = c(5, 5, 1, 1));
+plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
+     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+```
+
+\clearpage
 
 References
 ===============================================================================
