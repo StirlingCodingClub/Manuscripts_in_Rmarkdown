@@ -27,6 +27,8 @@ Contents
     - [Writing methods in Rstudio (images & equations)](#methods)
     - [Writing results in Rstudio (integrating R)](#results)
     - [Writing a Discussion in Rstudio (final tips)](#discussion)
+    - [Writing an Appendix in Rstudio (tables)](#appendix)
+- [Concluding remarks](#conclusion)
 
 ********************************************************************************
 
@@ -432,7 +434,7 @@ plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
 '''
 ```
 
-The option `echo = FALSE` in this case tells Rmarkdown not to print the code itself in the document; only the figure will be printed below. The fig height and width can be specified as above, and the figure caption appears below the figure itself, which looks like the below.
+The option `echo = FALSE` in this case tells Rmarkdown not to print the code itself in the document; only the figure will be printed below. More options for using coding chunks in Rmarkdown (e.g., whether or not to display error messages) can be found at the University of Edinburgh [Coding Club Website](https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html#insert). The fig height and width can be specified as above, and the figure caption appears below the figure itself, which looks like the below.
 
 ********************************************************************************
 
@@ -449,53 +451,61 @@ A major benefit of using Rmarkdown to make figures rather than first saving them
 <a name="discussion">Writing a Discussion in Rstudio (final tips)</a>
 ================================================================================
 
+There is not much more left to discuss, so I will wrap up with only a couple additional tips. Before going any further, I want to add a few things to the YAML header, which now looks like the below.
+
+```
+---
+title: "High sparrow body length decreases survival"
+author: "Brad Duthie"
+date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
+  FK9 4LA
+output:
+  pdf_document: default
+  html_document: default
+  word_document:
+    reference_docx: docx_template.docx
+header-includes:
+- \usepackage{lineno}
+- \linenumbers
+linestretch: 2
+link-citations: yes
+linkcolor: blue
+csl: evolution.csl
+subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
+bibliography: refs.bib
+---
+```
+
+Now, I have added my address in the `date` field of the YAML header. Unfortunately, this is a workaround for getting it to print to the output; Rmarkdown does not recognise any other field that will work, so `date` needs to be used to get address information below the title or subtitle. I have also added the field `linestretch: 2` to the YAML header, which tells Rmarkdown to double-space the PDF document output. Because colleagues and scientific journals typically want lines to be numbered, it is also necessary to add the `header-includes:` field to the YAML header. What this field is doing is telling Rmarkdown to use LaTeX packages (in this case, the `lineno` package) when making the PDF through `-usepackage{lineno}`, and then add line numbers with `-linenumbers`. The ability to do this requires that [the lineno package](https://ctan.org/pkg/lineno?lang=en) be downloaded first. 
+
+I have chosen to keep the Discussion text itself quite brief. The code below includes all of the text.
+
+```
+Discussion
+================================================================================
+
+I have analysed data collected by Herman Bumpus [@Bumpus1898] on the relationship between sparrow (*Passer domesticus*) total length and surival following an unusually severe storm. I found that sparrows that died in the storm were longer than sparrows that survived, which suggests that higher sparrow body length decreased survival. Of course, it is not possible to definitively conclude a causal relationship between any aspect of body size and sparrow survival<!--- BD Note: maybe explain this better --->, and even the available data collected by Bumpus would permit a more thoughtful analysis than that conducted in this study (see [Appendix Table 1](#appendix)). 
+
+<!---
+
+Here is one way to add some more detailed comments into the manuscript itself, though this can also be done within the text (see above). 
+
+--->
+
+Overall, this document demonstrates how high quality, professional looking documents can be written using Rmarkdown. The [underlying code](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd) for this manuscript is publicly available, along with [accompanying notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) to understand how it was written. By using Rmarkdown to write manuscripts, authors can more easily use version control (e.g., git) throughout the writing process. The ability to easily integrate citations though BibTeX, LaTeX tools, and dynamic R code can also make writing much more efficient and more enjoyable. Further, obtaining the benefits of using Rmarkdown does not need to come with the cost of isolating colleagues who prefer to work with Word or LaTeX because Rmarkdown can easily be converted to these formats (in the case of Word, with the push of a button). By learning all of the tools used in this manuscript, readers should have all of the necessary knowledge to get started writing and collaborating in Rmarkdown.
+```
+
+For the purpose of demonstration, I have included two notes within the Dicussion text as an example of the kinds of comments that might be made during the writing process (e.g., the equivalent of adding comments in a DOCX file). The code is the same as used in the [Methods](#methods) section, so my use here is really only for emphasis on the ability to use comments for multiple different purposes. I have also included a within-document link to an appendix `[Appendix Table 1](#appendix)`. This creates a link that redirects to the manuscript's Appendix Table 1, which I will discuss next.
+
+<a name="appendix">Writing an Appendix in Rstudio (tables)</a>
+================================================================================
+
+
+<a name="conclusion">Concluding remarks</a>
+================================================================================
+
 ********************************************************************************
 
-Some notes to get started:
-
-- Introduce the general idea of WYSIWYG and word processors, contrasting with DOCX files
-- Introduce non-WYSIWYG markup langauges (like HTML)
-- Discuss LaTeX and Word, and the costs and benefits of each
-- Present Rmarkdown as a sort of compromise between the two, usable easily in Rstudio
-- Discuss the costs and benefits of Rmarkdown, particularly in the context of scientific writing
-- Emphasise that LaTeX code can be integrated, as can R code, and a PDF, HTML, or DOCX can be produced with Knitr
-
-Show how to do this:
-
-- Write up a quick methods section
-    - A short paragraph on sparrows
-    - Add a picture of a sparrow as Figure 1
-    - State that we're going to compare bird length in living versus dead sparrows
-    - Will use a simple t-test in R
-    - Stop to show the result as a PDF
-- Write up a Results section
-    - Show how to read data into Rmarkdown
-    - Do the analysis in R within the results section
-    - Show how to output summary statistics and statistical test results from the analysis
-    - Make plots inside R markdown that show up in the results
-    - Stop to show the result as a PDF
-- Write up a Discussion section
-    - Very brief summary of the results
-    - Focus more on on explaining how this is all done in Rmarkdown
-    - Add some embedded links, maybe some other Rmarkdown tricks
-    - Show the finish product as a PDF, HTML, and word
-
-Point out where everything is to replicate all of the above (make this a single folder)
-
-- The Rmd file itself
-- The data
-- The images
-- The bibtex file
-- The relevant DOCX template
-
-Discuss some other features that are useful once you get the hang of things
-
-- Easy switch between formats using CSL files
-- Beautiful mathematics using LaTeX
-- Add LaTeX packages, such as headers
-- Links to different sections of the document 
-- Add some of these, then produce a new PDF and DOCX
-- Link to a few manuscripts written in Rmarkdown
 - Show how to convert a Rmd to a TEX file
 
 Emphasise that anyone who wants to do the same as above can fork the [GitHub Repository](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) and insert their own text. Point out the benefit of being able to use version control with the Rmd file. 
