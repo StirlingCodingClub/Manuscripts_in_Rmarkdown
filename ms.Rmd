@@ -1,15 +1,20 @@
 ---
 title: "High sparrow body length decreases survival"
 author: "Brad Duthie"
-csl: evolution.csl
+date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
+  FK9 4LA
 output:
-  html_document: default
-  pdf_document: default
   word_document:
     reference_docx: docx_template.docx
+  pdf_document: default
+  html_document: default
+header-includes:
+- \usepackage{lineno}
+- \linenumbers
+linestretch: 2
 link-citations: yes
 linkcolor: blue
-linestretch: 2
+csl: evolution.csl
 subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
 bibliography: refs.bib
 ---
@@ -49,9 +54,62 @@ $$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}}.$$
 
 In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conduceted the two sample t-test using the `t.test` function in R [@R2018].
 
+Results
+===============================================================================
+
+```{r, echo = FALSE, eval = TRUE}
+dat  <- read.csv(file = "data/Bumpus_data.csv");
+res  <- t.test(formula = dat$totlen ~ dat$surv, alternative = "less", 
+               var.equal = TRUE); # Two sample t-test results
+tval <- as.numeric(res$statistic); # Get the t-test statistic
+pval <- res$p.value; # Get the p value from the t-test results
+live <- as.numeric(res$estimate[1]); # Get mean length of living sparrows
+dead <- as.numeric(res$estimate[2]); # Get mean length of dying sparrows
+```
+
+Bumpus' data included `r sum(dat$surv == "alive")` sparrows that lived and `r sum(dat$surv == "dead")` sparrows that died. The mean total length of living sparrows was `r round(live, digits = 2)` mm, and the mean total length of dead sparrows was `r round(dead, digits = 2)` mm. The two sample t-test revealed a t-statistic of `r round(tval, digits = 2)`, which corresponds to a p-value of $P =$ `r round(pval, digits = 5)`. 
+
+```{r, echo = FALSE, eval = TRUE}
+total_len_alive <- dat$totlen[dat$surv == "alive"];
+total_len_dead  <- dat$totlen[dat$surv == "dead"];
+summary_alive   <- summary(total_len_alive);
+summary_dead    <- summary(total_len_dead);
+```
+
+Figure 2 shows the difference between total length in sparrows that survived versus sparrows that died. Overall, dead sparrows were `r round(dead - live, digits = 2)` mm longer than living sparrows, and ranged between `r as.numeric(summary_dead[1])` and `r as.numeric(summary_dead[5])` mm. Living sparrows ranged between  `r as.numeric(summary_alive[1])` and `r as.numeric(summary_alive[5])` mm (Figure 2).
+
+```{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
+par(mar = c(5, 5, 1, 1));
+plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
+     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+```
+
+Discussion
+================================================================================
+
+I have analysed data collected by Herman Bumpus [@Bumpus1898] on the relationship between sparrow (*Passer domesticus*) total length and surival following an unusually severe storm. I found that sparrows that died in the storm were longer than sparrows that survived, which suggests that higher sparrow body length decreased survival. Of course, it is not possible to definitively conclude a causal relationship between any aspect of body size and sparrow survival<!--- BD Note: maybe explain this better --->, and even the available data collected by Bumpus would permit a more thoughtful analysis than that conducted in this study (see [Appendix Table 1](#appendix)). 
+
+<!---
+
+Here is one way to add some more detailed comments into the manuscript itself, though this can also be done within the text (see above). 
+
+--->
+
+Overall, this document demonstrates how high quality, professional looking documents can be written using Rmarkdown. The [underlying code](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd) for this manuscript is publicly available, along with [accompanying notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) to understand how it was written. By using Rmarkdown to write manuscripts, authors can more easily use version control (e.g., git) throughout the writing process. The ability to easily integrate citations though BibTeX, LaTeX tools, and dynamic R code can also make writing much more efficient and more enjoyable. Further, obtaining the benefits of using Rmarkdown does not need to come with the cost of isolating colleagues who prefer to work with Word or LaTeX because Rmarkdown can easily be converted to these formats (in the case of Word, with the push of a button). By learning all of the tools used in this manuscript, readers should have all of the necessary knowledge to get started writing and collaborating in Rmarkdown.
 
 
 References
 ===============================================================================
 
 <div id="refs"></div>
+
+
+<a name="appendix">Appendix Table 1</a>
+================================================================================
+
+An example table is shown below, which includes all of the variables collected by @Bumpus1898 for the first 10 measured sparrows. The full data set can be found online in [GitHub](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/data/Bumpus_data.csv).
+
+```{r, echo = FALSE}
+library(knitr);
+kable(x = dat[1:10,], caption = "First ten rows of the original data set collected by Hermon Bumpus");
+```

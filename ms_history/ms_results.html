@@ -124,7 +124,6 @@ $(document).ready(function () {
 <h1 class="title toc-ignore">High sparrow body length decreases survival</h1>
 <h3 class="subtitle"><em>A demonstration of Rmarkdown using Herman Bumpus’ data</em></h3>
 <h4 class="author"><em>Brad Duthie</em></h4>
-<h4 class="date"><em>Biological and Environmental Sciences, University of Stirling, Stirling, UK, FK9 4LA</em></h4>
 
 </div>
 
@@ -165,16 +164,7 @@ $(document).ready(function () {
 Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively.
 </p>
 </div>
-</div>
-<div id="discussion" class="section level1">
-<h1>Discussion</h1>
-<p>I have analysed data collected by Herman Bumpus <span class="citation">(Bumpus <a href="#ref-Bumpus1898">1898</a>)</span> on the relationship between sparrow (<em>Passer domesticus</em>) total length and surival following an unusually severe storm. I found that sparrows that died in the storm were longer than sparrows that survived, which suggests that higher sparrow body length decreased survival. Of course, it is not possible to definitively conclude a causal relationship between any aspect of body size and sparrow survival<!--- BD Note: maybe explain this better --->, and even the available data collected by Bumpus would permit a more thoughtful analysis than that conducted in this study (see <a href="#appendix">Appendix Table 1</a>).</p>
-<!---
-
-Here is one way to add some more detailed comments into the manuscript itself, though this can also be done within the text (see above). 
-
---->
-<p>Overall, this document demonstrates how high quality, professional looking documents can be written using Rmarkdown. The <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd">underlying code</a> for this manuscript is publicly available, along with <a href="https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html">accompanying notes</a> to understand how it was written. By using Rmarkdown to write manuscripts, authors can more easily use version control (e.g., git) throughout the writing process. The ability to easily integrate citations though BibTeX, LaTeX tools, and dynamic R code can also make writing much more efficient and more enjoyable. Further, obtaining the benefits of using Rmarkdown does not need to come with the cost of isolating colleagues who prefer to work with Word or LaTeX because Rmarkdown can easily be converted to these formats (in the case of Word, with the push of a button). By learning all of the tools used in this manuscript, readers should have all of the necessary knowledge to get started writing and collaborating in Rmarkdown.</p>
+<p></p>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
@@ -192,160 +182,6 @@ Here is one way to add some more detailed comments into the manuscript itself, t
 <p>R Core Team. 2018. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.</p>
 </div>
 </div>
-</div>
-<div id="appendix-table-1" class="section level1">
-<h1><a name="appendix">Appendix Table 1</a></h1>
-<p>An example table is shown below, which includes all of the variables collected by <span class="citation">Bumpus (<a href="#ref-Bumpus1898">1898</a>)</span> for the first 10 measured sparrows. The full data set can be found online in <a href="https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/data/Bumpus_data.csv">GitHub</a>.</p>
-<table>
-<caption>First ten rows of the original data set collected by Hermon Bumpus</caption>
-<thead>
-<tr class="header">
-<th align="left">sex</th>
-<th align="left">surv</th>
-<th align="right">totlen</th>
-<th align="right">wingext</th>
-<th align="right">wgt</th>
-<th align="right">head</th>
-<th align="right">humer</th>
-<th align="right">femur</th>
-<th align="right">tibio</th>
-<th align="right">skull</th>
-<th align="right">stern</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">154</td>
-<td align="right">241</td>
-<td align="right">24.5</td>
-<td align="right">31.2</td>
-<td align="right">0.687</td>
-<td align="right">0.668</td>
-<td align="right">1.022</td>
-<td align="right">0.587</td>
-<td align="right">0.830</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">160</td>
-<td align="right">252</td>
-<td align="right">26.9</td>
-<td align="right">30.8</td>
-<td align="right">0.736</td>
-<td align="right">0.709</td>
-<td align="right">1.180</td>
-<td align="right">0.602</td>
-<td align="right">0.841</td>
-</tr>
-<tr class="odd">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">155</td>
-<td align="right">243</td>
-<td align="right">26.9</td>
-<td align="right">30.6</td>
-<td align="right">0.733</td>
-<td align="right">0.704</td>
-<td align="right">1.151</td>
-<td align="right">0.602</td>
-<td align="right">0.846</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">154</td>
-<td align="right">245</td>
-<td align="right">24.3</td>
-<td align="right">31.7</td>
-<td align="right">0.741</td>
-<td align="right">0.688</td>
-<td align="right">1.146</td>
-<td align="right">0.584</td>
-<td align="right">0.839</td>
-</tr>
-<tr class="odd">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">156</td>
-<td align="right">247</td>
-<td align="right">24.1</td>
-<td align="right">31.5</td>
-<td align="right">0.715</td>
-<td align="right">0.706</td>
-<td align="right">1.129</td>
-<td align="right">0.575</td>
-<td align="right">0.821</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">161</td>
-<td align="right">253</td>
-<td align="right">26.5</td>
-<td align="right">31.8</td>
-<td align="right">0.780</td>
-<td align="right">0.743</td>
-<td align="right">1.144</td>
-<td align="right">0.607</td>
-<td align="right">0.893</td>
-</tr>
-<tr class="odd">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">157</td>
-<td align="right">251</td>
-<td align="right">24.6</td>
-<td align="right">31.1</td>
-<td align="right">0.741</td>
-<td align="right">0.736</td>
-<td align="right">1.153</td>
-<td align="right">0.610</td>
-<td align="right">0.862</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">159</td>
-<td align="right">247</td>
-<td align="right">24.2</td>
-<td align="right">31.4</td>
-<td align="right">0.728</td>
-<td align="right">0.718</td>
-<td align="right">1.126</td>
-<td align="right">0.609</td>
-<td align="right">0.793</td>
-</tr>
-<tr class="odd">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">158</td>
-<td align="right">247</td>
-<td align="right">23.6</td>
-<td align="right">29.8</td>
-<td align="right">0.703</td>
-<td align="right">0.673</td>
-<td align="right">1.079</td>
-<td align="right">0.602</td>
-<td align="right">0.820</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">alive</td>
-<td align="right">158</td>
-<td align="right">252</td>
-<td align="right">26.2</td>
-<td align="right">32.0</td>
-<td align="right">0.749</td>
-<td align="right">0.739</td>
-<td align="right">1.153</td>
-<td align="right">0.614</td>
-<td align="right">0.857</td>
-</tr>
-</tbody>
-</table>
 </div>
 
 
