@@ -28,6 +28,7 @@ Contents
     - [Writing results in Rstudio (integrating R)](#results)
     - [Writing a Discussion in Rstudio (final tips)](#discussion)
     - [Writing an Appendix in Rstudio (tables)](#appendix)
+- [Adding page headers](#headers)
 - [Concluding remarks](#conclusion)
 
 ********************************************************************************
@@ -517,6 +518,52 @@ kable(x = dat[1:10,], caption = "First ten rows of the original data set collect
 This appendix produced by the above code creates a table of the first 10 rows of Bumpus' data set. This is done using the `kable` funciton in the `knitr` R package, which must be called within Rmarkdown to work properly (the `knitr` package can be downloaded using the command `install.packages("knitr")`).
 
 The final output is shown in [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_final.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/224e0f3673aece576d5c859f5409b6c9b68a5565/ms.pdf), and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/224e0f3673aece576d5c859f5409b6c9b68a5565/ms.docx) formats. Readers that can apply the code underlying this output in their own manuscripts should have all of the tools that they need to get started writing scientific manuscripts in Rmarkdown.
+
+<a name="headers">Page headers</a>
+================================================================================
+
+When submitting a manuscript for review, many journals request that a header be added to the top of each page with a short title for the manuscript. Obviously, page headers are not applicable for HTML output, but they can be created in Rmarkdown for DOCX and PDF outputs. For DOCX files, the way to do this is by simply adding the desired header to the [template DOCX file](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/docx_template.docx). The header will be reproduced in the DOCX output to look exactly the same as it does in the template DOCX file.
+
+For PDF output, the way to add a header is through the use of the '[fancyhdr](https://ctan.org/pkg/fancyhdr?lang=en)' LaTeX package. To get headers included into the PDF, the updated YAML header should add the following under 'header-includes'. 
+
+```
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[L]{MANUSCRIPT AUTHORS}
+- \fancyhead[R]{MANUSCRIPT SHORT TITLE}
+```
+
+With the above added to the YAML header of [ms.Rmd](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd), the whole thing looks like the below.
+
+```
+---
+title: "High sparrow body length decreases survival"
+author: "Brad Duthie"
+date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
+  FK9 4LA
+output:
+  pdf_document: default
+  html_document: default
+  word_document:
+    reference_docx: docx_template.docx
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[L]{MANUSCRIPT AUTHORS}
+- \fancyhead[R]{MANUSCRIPT SHORT TITLE}
+- \usepackage{lineno}
+- \linenumbers
+linestretch: 2
+link-citations: yes
+linkcolor: blue
+csl: evolution.csl
+subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
+bibliography: refs.bib
+---
+```
+
+The above produces a [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/986fa429c88b1d5d1403005c265c6aaaa331a194/ms.pdf) and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/986fa429c88b1d5d1403005c265c6aaaa331a194/ms.docx) file with the appropriate headers included.
 
 
 <a name="conclusion">Concluding remarks</a>
