@@ -1,0 +1,169 @@
+---
+title: "Manuscripts in Rmarkdown"
+author: "Brad Duthie"
+date: "31 October 2018"
+output:
+  ioslides_presentation:
+    logo: images/SCC_Logo_slide_sm.png
+  beamer_presentation: default
+  slidy_presentation: default
+---
+
+
+<style type="text/css">
+body p {
+  color: #000000;
+}
+ul {
+  color: black;
+}
+ol {
+  color: black;
+}
+a {
+    color: darkblue;
+    text-decoration: none
+}
+.fifty {
+   font-size: 50%;
+   }
+.seventy {
+   font-size: 70%;
+   }
+slides > slide.backdrop {
+  background: none !important;
+  background-color: white !important;
+}
+slides > slide.title-slide hgroup h1 {
+  color: black;
+}
+slides > slide.title-slide p {
+  color: black;
+}
+slides > slide.light > hgroup h2 {
+  color: black;
+}
+slides > slide.light > hgroup h1 {
+  color: black;
+}
+ul {
+  color: black;
+}
+ol {
+  color: black;
+}
+p {
+  color: black
+}
+h1, h2, h3, h4, h5, h6, h7, h8, p {
+    color: black;
+}
+</style>
+
+## Stirling Coding Club (SCC) on GitHub
+
+**A lot of learning & discussion in SCC occurs on line in [GitHub](http://github.com).**
+
+<hr>
+
+<div class="columns-2" style="margin-top:30px; margin-bottom:30px; margin-left:40px">
+
+![](images/github_logo.png)
+
+- [Full notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) are available online
+- [Repository](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) to see all today's code
+- [Issues](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/issues) online to ask questions
+
+</div>
+
+<hr>
+
+**If you are not yet signed up, go to [http://github.com/join](http://github.com/join), then contact [Brad](https://bradduthie.github.io/) or [Anna](https://www.stir.ac.uk/people/266756).**
+
+
+
+## Stirling Coding Club (SCC) on GitHub {.smaller}
+
+**This slide presentation is available in the link below**
+
+<hr>
+
+https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/presentation.html
+
+<br>
+<hr>
+<div class="columns-2">
+
+- **Students and educators can sign up for a [GitHub Education](https://education.github.com/pack) package, which includes a lot of free coding software**
+- [GitHub](http://github.com) unlimited free private repositories (usually 7 USD per month)
+- [GitKraken](http://gitkraken.com) free pro account (usually 49 USD per year)
+
+![](images/gitkraken.png)
+
+</div>
+
+<hr>
+
+## Edinburgh Coding Club Invitation
+
+Stirling Coding Club participants are invited to take part in upcoming [workshops at the University of Edinburgh](https://ourcodingclub.github.io/).
+
+<hr>
+
+- **7 NOV 2018: 15:00-17:00**. Introduction to mixed effects models.
+- **21 NOV 2018: 15:00-17:00**. Bayesian meta-analysis (uses the MCMCglmm package)
+- **5 DEC 2018: 15:00-17:00**. Introduction to [Integrated Nested Laplace Approximations](https://inla.r-inla-download.org/r-inla.org/papers/inla-rss.pdf) (INLA) with R (spatial autocorrelation and mixed models).
+
+<hr>
+<center>
+
+**[https://ourcodingclub.github.io](https://ourcodingclub.github.io)**
+
+</center>
+
+## Objectives for learning Rmarkdown
+
+<hr>
+
+1. **Understand the features of Rmarkdown and why using it to write scientific documents may be useful**
+2. **Create an Rmarkdown file and assemble it into an HTML, PDF, or DOCX document using knitr in Rstudio**
+3. **Apply basic integration of R code into Rmarkdown to analyse data and plot results in output**
+4. **Be able to navigate to the [accompanying Rmarkdown notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) and make use of them for additional tools**
+5. **Continue asking questions and sharing tips in the Rmarkdown repository [issues page](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/issues) on GitHub**
+
+<hr>
+
+## Where did Rmarkdown come from?
+
+| Microsoft Word (1983)          |  $\LaTeX{}$ (1980)                     |
+| ------------------------------ | --------------------------------- |
+| - Used in the life sciences    | - Used in maths and physics       |
+| - What you see is what you get | - Edit files in [plain text](https://en.wikipedia.org/wiki/LaTeX) (code) |
+| - Proprietary software         | - Free software                   |
+| - **Low learning curve**       | - **High learning curve**         |
+| - **No analysis integration**  | - **No analysis integration**     |
+
+<hr>
+
+**Rmarkdown** (2012) is free software with a **relatively low learning curve** in which authors write in plain text and can easily integrate R analyses, citations, and tables or figures.
+
+
+## Why is Rmarkdown worth learning?
+
+<hr>
+
+- Learning is a relatively low additional time investment if already invested in R
+- Produces high quality [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_final.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/224e0f3673aece576d5c859f5409b6c9b68a5565/ms.pdf), and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/224e0f3673aece576d5c859f5409b6c9b68a5565/ms.docx) documents with the push of a button from an [Rmd file](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.Rmd) in Rstudio
+- Removes the need to format citations manually (with BibTeX)
+- Allows users to insert images and equations seamlessly
+- **Complete integration of data analysis and manuscript** (no copy-pasting when values or figures change)
+
+<hr>
+
+**You do not need to learn everything at once for Rmarkdown to be useful. If you get stuck or cannot figure out how to do something, you can always knit a DOCX and work from there.**
+
+
+
+
+
+

@@ -4,11 +4,15 @@ author: "Brad Duthie"
 date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
   FK9 4LA
 output:
-  word_document:
-    reference_docx: docx_template.docx
   pdf_document: default
   html_document: default
+  word_document:
+    reference_docx: docx_template.docx
 header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[L]{MANUSCRIPT AUTHORS}
+- \fancyhead[R]{MANUSCRIPT SHORT TITLE}
 - \usepackage{lineno}
 - \linenumbers
 linestretch: 2
