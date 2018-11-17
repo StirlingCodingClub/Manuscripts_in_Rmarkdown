@@ -5,6 +5,7 @@ author: "Brad Duthie"
 date: "22 November 2018"
 output: 
   ioslides_presentation: 
+    logo: images/SCC_Logo_slide_sm.png
     widescreen: yes
     fig_width: 5
     fig_height: 5
@@ -497,9 +498,12 @@ dat <- read.csv(file = "data/Bumpus_data.csv");
 
 Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code: 
 
-'r round(mean(dat$totlen), digits = 2' 
 
-But with grave accents instead of apostrophes.
+```{r, eval = FALSE}
+    `r round(mean(dat$totlen), digits = 2)`
+```
+
+Code can be used to generate a plot.
 
 
 ```{r}
@@ -963,4 +967,120 @@ renderPlot({
 })
 ```
 
+
+## Create a new Rmarkdown document {.smaller}
+
+<!---
+<pre><code>&#96;&#96;&#96;{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE) &#96;&#96;&#96;</code></pre>
+--->
+
+**In Rstudio**: <u>F</u>ile $\to$ New <u>F</u>ile $\to$ R <u>M</u>arkdown...
+
+<pre><code>
+    ---
+    title: "Untitled"
+    author: "Brad Duthie"
+    date: "17 November 2018"
+    output: html_document
+    ---
+
+    ```{r setup, include=FALSE}
+    knitr::opts_chunk$set(echo = TRUE)
+    ```
+
+    ## R Markdown
+
+    This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and 
+    MS Word documents. For more details on using R Markdown see 
+    < http://rmarkdown.rstudio.com >.
+
+    When you click the **Knit** button a document will be generated that includes both content as 
+    well as the output of any embedded R code chunks within the document. You can embed an R code 
+    chunk like this:
+
+</code></pre>
+
+
+## Copy and paste an abstract, then knit {.smaller}
+
+<pre><code>
+    ---
+    title: "High sparrow body length decreases survival"
+    author: "Brad Duthie"
+    date: "17 November 2018"
+    output: html_document
+    ---
+    
+    Abstract
+    ============================================================================
+    
+    Writing documents in Rmarkdown using Rstudio can make scientific workflow more efficient, and here I 
+    demonstrate how a scientific manuscript can be written using a classical data set first published by 
+    Herman Bumpus. I integrate Bumpus' data with Rmarkdown to produce a sample manuscript, testing whether 
+    or not sparrow body length decreases survival following a storm in southern New England. Using 
+    a t-test, I show that surviving birds have lower body length than birds that do not survive. All 
+    analyses of data are incorporated into the underlying Rmarkdown document, including figures and 
+    a table. References are incorporated using BibTeX. The underlying code for this manuscript 
+    is publicly available on GitHub as part of the Stirling Coding Club organisation.
+</code></pre>
+
+**Now find the 'Knit' button on the toolbar**
+
+<center>
+![](images/Rstudio_toolbar.png)
+</center>
+
+
+## Creating a BIB file for referencing (e.g., 'refs.bib') {.smaller}
+
+A BibTeX file is a plain text file with the extension .bib -- it gives Rmarkdown the information needed to **automatically generate parenthetical citations and a bibliography.**
+
+<pre><code>
+@article{Bumpus1898,
+author = {Bumpus, Hermon C},
+journal = {Biological Lectures: Woods Hole Marine Biological Laboratory},
+pages = {209--225},
+title = {{Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, 
+{\it Passer domesticus}. (A fourth contribution to the study of variation.)}},
+year = {1898}
+}
+@book{Darwin1859,
+address = {New York},
+author = {Darwin, Charles},
+pages = {495},
+publisher = {Penguin},
+title = {{The Origin of Species}},
+year = {1859}
+}
+</code></pre>
+
+Most references manager such as [EndNote](https://www.reed.edu/cis/help/LaTeX/EndNote.html), [Zotero](https://libguides.princeton.edu/c.php?g=148292&p=991756), or [Mendeley](https://libguides.usask.ca/c.php?g=218034&p=1446316) generate BibTeX files automatically with the 'Export' option.
+
+## Adding an introduction with references {.smaller}
+
+<pre><code>
+    ---
+    title: "High sparrow body length decreases survival"
+    author: "Brad Duthie"
+    date: "17 November 2018"
+    output: html_document
+    bibliography: refs.bib
+    ---
+</code></pre>
+
+**A new YAML addition `bibliography: refs.bib` allows for citations.**
+
+<pre><code>
+    Introduction
+    ============================================================================
+
+    In the late 1800s, there was a particulalry severe snowstorm in Providence, Rhode Island. At the 
+    time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that 
+    the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) 
+    and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. 
+    Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. 
+    @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic 
+    data set in biology, and have been analysed multiple times. Here I will use Bumpus' data to 
+    demonstrate how to write a scientific manuscript in Rmarkdown.
+</code></pre>
 
