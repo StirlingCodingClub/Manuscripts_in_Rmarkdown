@@ -447,6 +447,8 @@ plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
 
 ********************************************************************************
 
+**It is important to note that Rmarkdown can only plot or print output that is read into the Rmd document itself**. In other words, if I had read `dat` into the the R *console* in Rstudio using `dat <- read.csv()`, but I had not input it using `dat <- read.csv()` into the Rmarkdown *document* above, then I would not have been able to plot `dat$surv` as above (or, indeed, use `dat` at all in the document). The Rmarkdown document and R console are independent within Rstudio.
+
 A major benefit of using Rmarkdown to make figures rather than first saving them as an image file (e.g., JPG, PNG, etc.) is that if the data or analyses ever change, then the figure does not need to be remade and resaved. **Because the link from raw data to output is preserved seamlessly by Rmarkdown, any change to the data will result in updated result output and figures**. The manuscript as written up through the results can be viewed for [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_results.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/b2445dcf69d7c0f9c1f118c1695009644f6aeee6/ms.pdf), and [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/b2445dcf69d7c0f9c1f118c1695009644f6aeee6/ms.docx) outputs. In the next section, I will finish the manuscript with a brief Discussion that will focus on some final tips for using Rmarkdown in writing a manuscript.
 
 <a name="discussion">Writing a Discussion in Rstudio (final tips)</a>
