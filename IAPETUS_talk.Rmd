@@ -1084,3 +1084,30 @@ Most references manager such as [EndNote](https://www.reed.edu/cis/help/LaTeX/En
     demonstrate how to write a scientific manuscript in Rmarkdown.
 </code></pre>
 
+
+## Integrating R code into the document {.smaller}
+
+<pre><code>
+    Methods
+    ============================================================================
+    
+    Here is some text that is not R code, and will be rendered as normal text in our PDF, DOCX, or HTML 
+    document. The R code starts below.
+    <pre><code>
+    &#96;&#96;&#96;{r, echo = FALSE, eval = TRUE}
+    # Here is some R code reading in the Bumpus data
+    dat  <- read.csv(file = "data/Bumpus_data.csv");
+    mlen <- mean(dat$totlen); # Get the mean
+    &#96;&#96;&#96;
+    </code></pre>
+    The mean sparrow total length was &#96;r mlen&#96;.
+</code></pre>
+
+The code above works seemlessly with the text so that the last line above is printed as below: 
+
+- The mean sparrow total length was `r round(mean(dat$totlen), digits = 2)`.
+
+
+
+
+
