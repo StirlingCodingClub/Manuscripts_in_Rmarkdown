@@ -4,10 +4,10 @@ author: "Brad Duthie"
 date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
   FK9 4LA
 output:
-  pdf_document: default
-  html_document: default
   word_document:
     reference_docx: docx_template.docx
+  pdf_document: default
+  html_document: default
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}

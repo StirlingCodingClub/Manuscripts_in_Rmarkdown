@@ -486,11 +486,28 @@ mate_connect <- function(ID){
 
 **You do not need to learn everything at once for Rmarkdown to be useful. If you get stuck or cannot figure out how to do something, you can always knit a DOCX and work from there.**
 
+
+## The Bumpus sparrow data set 
+
+<div class="columns-2">
+
+[Hermon Bumpus](http://www.brown.edu/Administration/News_Bureau/Databases/Encyclopedia/search.php?serial=B0700), a professor of comparative zoology collected some house sparrows (*Passer domesticus*) after an especially severe snowstorm in Providence, Rhode Island. 
+
+Some birds lived, others died. Bumpus collected data to test natural selection in action. He published a [paper and measurements](https://www.fieldmuseum.org/science/blog/hermon-bumpus-and-house-sparrows) of 136 sparrows. 
+
+[These data](https://www.fieldmuseum.org/sites/default/files/plowther/2014/09/24/bumpus.txt) are now a classic data set in biology, and have been analysed multiple times.
+
+
+![](images/Luc_Viatour_m_sparrow_sm.jpg)
+
+**Image:** [Luc Viatour](https://commons.wikimedia.org/wiki/File:Male_House_Sparrow_open_beak.jpg)
+
+
 ## Simple integration of R data on slides {.smaller}
 
 <div class="columns-2">
 
-Code below reads in the [Bumpus sparrow](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/data/Bumpus_data.csv) data set.
+Code below reads in the [Bumpus sparrow](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/4d13f87c4c4d954a06230b0af559d49fadcb65ad/IAPETUS_talk.Rmd#L489) data set.
 
 ```{r}
 dat <- read.csv(file = "data/Bumpus_data.csv");
@@ -1108,11 +1125,32 @@ CSL files tell Rmarkdown how to format citations ([see example](https://stirling
     the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) 
     and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. 
     Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. 
-    @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic 
-    data set in biology, and have been analysed multiple times. Here I will use Bumpus' data to 
-    demonstrate how to write a scientific manuscript in Rmarkdown.
+    @Bumpus1898 published a paper and all of the data that he had collected. These data are now ...
 </code></pre>
 
+## Using a template (non-default) DOCX file {.smaller}
+
+- Headings are in blue
+- No line numbers   
+- Single spaced
+- Non-standard font choices
+
+<pre><code>
+    ---
+    title: "High sparrow body length decreases survival"
+    author: "Brad Duthie"
+    date: "17 November 2018"
+    output:
+        pdf_document: default
+        html_document: default
+        word_document:
+            reference_docx: docx_template.docx
+    bibliography: refs.bib
+    csl: nature.csl
+    ---
+</code></pre>
+
+A template DOCX [available here](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/4d13f87c4c4d954a06230b0af559d49fadcb65ad/docx_template.docx) can be used to created a Word document formatted as desired.
 
 
 ## Integrating R code into the document {.smaller}
@@ -1137,6 +1175,15 @@ The code above works seemlessly with the text so that the last line above is pri
 
 - The mean sparrow total length was `r round(mean(dat$totlen), digits = 2)`.
 
+
+
+
+
+
+
+
+
+## Shiny plot of the Bumpus data
 
 
 
