@@ -5,7 +5,7 @@ author: "Brad Duthie"
 date: "22 November 2018"
 output: 
   ioslides_presentation: 
-    logo: images/SCC_Logo_slide_sm.png
+    logo: images/IAPETUSnewlogo.png
     widescreen: yes
     fig_width: 5
     fig_height: 5
@@ -496,7 +496,7 @@ Code below reads in the [Bumpus sparrow](https://github.com/StirlingCodingClub/M
 dat <- read.csv(file = "data/Bumpus_data.csv");
 ```
 
-Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code ([see line]()): 
+Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code ([see line](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/IAPETUS_talk.Rmd#L489)): 
 
 
 ```{r, eval = FALSE}
@@ -1068,7 +1068,7 @@ Most references manager such as [EndNote](https://www.reed.edu/cis/help/LaTeX/En
     ---
 </code></pre>
 
-**A new YAML addition `bibliography: refs.bib` allows for citations.**
+**A new YAML addition `bibliography: refs.bib` allows for citations** ([see result](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_intro.html))
 
 <pre><code>
     Introduction
@@ -1083,6 +1083,36 @@ Most references manager such as [EndNote](https://www.reed.edu/cis/help/LaTeX/En
     data set in biology, and have been analysed multiple times. Here I will use Bumpus' data to 
     demonstrate how to write a scientific manuscript in Rmarkdown.
 </code></pre>
+
+## Using CSL files to save time {.smaller}
+
+<pre><code>
+    ---
+    title: "High sparrow body length decreases survival"
+    author: "Brad Duthie"
+    date: "17 November 2018"
+    output: html_document
+    bibliography: refs.bib
+    csl: nature.csl
+    ---
+</code></pre>
+
+CSL files tell Rmarkdown how to format citations ([see example](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms_history/ms_nature.html)), and are [widely available](https://github.com/citation-style-language/styles).
+
+<pre><code>
+    Introduction
+    ============================================================================
+
+    In the late 1800s, there was a particulalry severe snowstorm in Providence, Rhode Island. At the 
+    time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that 
+    the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) 
+    and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. 
+    Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. 
+    @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic 
+    data set in biology, and have been analysed multiple times. Here I will use Bumpus' data to 
+    demonstrate how to write a scientific manuscript in Rmarkdown.
+</code></pre>
+
 
 
 ## Integrating R code into the document {.smaller}
