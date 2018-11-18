@@ -496,7 +496,7 @@ Code below reads in the [Bumpus sparrow](https://github.com/StirlingCodingClub/M
 dat <- read.csv(file = "data/Bumpus_data.csv");
 ```
 
-Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code: 
+Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code ([see line]()): 
 
 
 ```{r, eval = FALSE}
