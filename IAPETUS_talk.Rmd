@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6, h7, h8, p {
 .checkbox-inline, .radio-inline {
     margin-right: 90px;
 }
+.forceBreak { -webkit-column-break-after: always; break-after: column; }
 </style>
 
 
@@ -420,7 +421,6 @@ mate_connect <- function(ID){
 }
 ```
 
-
 <!--- --------------------------------------------------------------------------
 ################################################################################
 ################################################################################
@@ -458,6 +458,8 @@ mate_connect <- function(ID){
 6. **Learn how to use shiny within presentations**
 
 <hr>
+
+# Introducing Rmarkdown and Shiny
 
 ## Where did Rmarkdown come from?
 
@@ -987,6 +989,7 @@ renderPlot({
 })
 ```
 
+# Getting started with knitr and references
 
 ## Create a new Rmarkdown document {.smaller}
 
@@ -1155,6 +1158,7 @@ CSL files tell Rmarkdown how to format citations ([see example](https://stirling
 
 A template DOCX [available here](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/4d13f87c4c4d954a06230b0af559d49fadcb65ad/docx_template.docx) can be used to created a Word document formatted as desired.
 
+# Integrating R analysis
 
 ## Integrating R code into the document {.smaller}
 
@@ -1179,6 +1183,91 @@ The code above works seemlessly with the text so that the last line above is pri
 - The mean sparrow total length was `r round(mean(dat$totlen), digits = 2)`.
 
 
+## Additional tricks for manuscript writing
+
+Everything needed for writing a manuscript is available [on GitHub](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown).
+<br><br>
+
+<div class="columns-2" style="margin-top:30px; margin-bottom:30px; margin-left:40px">
+<br>
+<center>
+![](images/github_logo.png)
+</center>
+
+<br><br>
+
+- [Full notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) are available online
+- [Repository](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) to see all today's code
+- [Issues](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/issues) online to ask questions
+
+</div>
+
+## Additional tricks for manuscript writing
+
+Everything needed for writing a manuscript is available [on GitHub](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown).
+<br><br>
+
+<div class="columns-2" style="margin-top:30px; margin-bottom:30px; margin-left:40px">
+<br>
+<center>
+![](images/github_logo.png)
+</center>
+
+<p class="forceBreak"></p>
+
+- Images (e.g., JPG, PNG, GIF)
+- Equations
+- Headers (for PDF)
+- Line numbers (PDF)
+- Comments (within Rmd)
+- Links and linked references
+- Tables
+
+</div>
+
+# Self-guided writing and tea break
+
+# Creating presentations
+
+## Creating presentations with Rmarkdown
+
+<div class="columns-2" style="margin-top:30px; margin-bottom:30px; margin-left:30px; margin-right:30px padding:100px">
+
+- Code to the right shows a simple Rmarkdown presentation
+
+- YAML file includes ioslides, beamer, & slidy options
+    - More difficult to switch between types
+    - ioslides & slidy create HTML
+    - beamer creates PDF output
+    - ioslides works with shiny
+
+- The current slides are run with ioslides
+
+<p class="forceBreak"></p>
+
+```{r, eval = FALSE}
+---
+title: "Presentation Title"
+author: "Brad Duthie"
+date: "18 November 2018"
+output:
+  ioslides_presentation:
+    logo: images/IAPETUSnewlogo.png
+  beamer_presentation: default
+  slidy_presentation: default
+---
+    
+# Big transition slide
+    
+## Normal new slide title
+
+- Bullet point 1
+- Bullet point 2
+```
+
+</div>
+
+# Using shiny with Rmarkdown
 
 ## Shiny plot of the Bumpus data {.smaller}
 
