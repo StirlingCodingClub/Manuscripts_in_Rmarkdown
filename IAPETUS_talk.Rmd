@@ -60,6 +60,9 @@ p {
 h1, h2, h3, h4, h5, h6, h7, h8, p {
     color: black;
 }
+.checkbox-inline, .radio-inline {
+    margin-right: 90px;
+}
 </style>
 
 
@@ -1177,14 +1180,60 @@ The code above works seemlessly with the text so that the last line above is pri
 
 
 
+## Shiny plot of the Bumpus data {.smaller}
+
+```{r, echo = TRUE, eval = FALSE}
+# This code goes into the Rmarkdown file to make the next slide
+library(shiny);
+dat <- read.csv(file = "data/Bumpus_data.csv");
+
+# The code below generates the input choices
+inputPanel(
+  radioButtons(inputId = "radio", label = "",
+                        choices = list("Humerus"     = 7, 
+                                       "Femur"       = 8,
+                                       "Tibiotarsus" = 9,
+                                       "Skull"       = 10,
+                                       "Sternum"     = 11),
+               inline   = TRUE, 
+               width    = '800px', 
+               selected = 7)
+)
+
+# The code below renders a histogram depending on the input
+renderPlot({
+    n_col <- as.numeric(input$radio);
+    par(mar = c(5, 5, 1, 1));
+    hist(x = dat[, n_col], main = "", xlab = "Measurement value (mm)",
+         ylab = "Frequency", cex.lab = 1.5, cex.axis = 1.5, col = "blue");
+})
+```
 
 
+## Shiny plot of the Bumpus data {.smaller}
 
+```{r, echo = FALSE}
+inputPanel(
+  radioButtons(inputId = "radio", label = "",
+                        choices = list("Humerus"     = 7, 
+                                       "Femur"       = 8,
+                                       "Tibiotarsus" = 9,
+                                       "Skull"       = 10,
+                                       "Sternum"     = 11),
+               inline   = TRUE,
+               width    = '1200px',
+               selected = 7)
+)
 
+renderPlot({
+    n_col <- as.numeric(input$radio);
+    par(mar = c(5, 5, 1, 1));
+    hist(x = dat[, n_col], main = "", xlab = "Measurement value (mm)",
+         ylab = "Frequency", cex.lab = 1.5, cex.axis = 1.5, col = "blue");
+})
+```
 
-
-## Shiny plot of the Bumpus data
-
-
-
+<center>
+**Shiny [gallery](https://shiny.rstudio.com/gallery/) includes example code that can be copied and used.**
+</center>
 
