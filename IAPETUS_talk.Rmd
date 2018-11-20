@@ -442,8 +442,8 @@ mate_connect <- function(ID){
 | 15:00 -- 15:20   | Integrating R analysis (15:00-15:20)                    |
 | 15:20 -- 16:00   | Self-guided writing with Rmarkdown (15:20-16:00)        |
 | 16:00 -- 16:30   | Tea break (16:00-16:30)                                 |
-| 17:00 -- 17:30   | Creating presentations (17:00-17:30)                    |
-| 17:30 -- 18:00   | Adding shiny to Rmarkdown (17:30-18:00)                 |
+| 16:30 -- 17:00   | Creating presentations (17:00-17:30)                    |
+| 17:00 -- 18:00   | Adding shiny to Rmarkdown (17:30-18:00)                 |
 
 
 ## Objectives for today
@@ -518,7 +518,7 @@ Code below reads in the [Bumpus sparrow](https://github.com/StirlingCodingClub/M
 dat <- read.csv(file = "data/Bumpus_data.csv");
 ```
 
-Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code ([see line](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/IAPETUS_talk.Rmd#L489)): 
+Mean sparrow length is `r round(mean(dat$totlen), digits = 2)`. This number is printed with the code ([see line](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/4d13f87c4c4d954a06230b0af559d49fadcb65ad/IAPETUS_talk.Rmd#L499)): 
 
 
 ```{r, eval = FALSE}
@@ -1126,7 +1126,7 @@ CSL files tell Rmarkdown how to format citations ([see example](https://stirling
     Introduction
     ============================================================================
 
-    In the late 1800s, there was a particulalry severe snowstorm in Providence, Rhode Island. At the 
+    In the late 1800s, there was a particularly severe snowstorm in Providence, Rhode Island. At the 
     time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that 
     the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) 
     and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. 
@@ -1157,6 +1157,15 @@ CSL files tell Rmarkdown how to format citations ([see example](https://stirling
 </code></pre>
 
 A template DOCX [available here](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/4d13f87c4c4d954a06230b0af559d49fadcb65ad/docx_template.docx) can be used to created a Word document formatted as desired.
+
+## Rmarkdown learning activity
+
+1. Initialise a new Rmarkdown document
+2. Copy and paste your scientific writing into Rmarkdown (e.g., abstract and Introduction)
+3. Generate a BIB file and cite one or more reference using a citation key
+4. Download a [CSL file](https://github.com/citation-style-language/styles) from a journal of interest and apply it to your writing
+5. Knit your document to an HTML and PDF output
+6. Use a [reference DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/4d13f87c4c4d954a06230b0af559d49fadcb65ad/docx_template.docx) and knit your document to a DOCX output
 
 # Integrating R analysis
 
@@ -1225,6 +1234,13 @@ Everything needed for writing a manuscript is available [on GitHub](https://gith
 
 </div>
 
+## Rmarkdown learning activity
+
+1. Read in some data or model analysis into your Rmarkdown document
+2. Run an analysis within Rmarkdown
+3. Print analysis results as plain text in Rmarkdown output
+4. Present a table or figure as Rmarkdown output
+
 # Self-guided writing and tea break
 
 # Creating presentations
@@ -1267,9 +1283,144 @@ output:
 
 </div>
 
+## Creating presentations with Rmarkdown {.smaller}
+
+It can be useful to know the code below to create multiple columns on a slide (e.g., picture on one side, text on the other).
+
+```
+<div class="columns-2">
+
+- Bullet point 1
+- Bullet point 2
+- Bullet point 3
+
+<p class="forceBreak"></p>
+
+![Figure legend](path/to/figure.jpg)
+
+</div>
+```
+
+Note that the above only works with ioslides, and requires a bit of HTML (the `div` and `p`). To get `<p class="forceBreak"></p>`, it is necessary to add the below somewhere at the beginning of the Rmd file.
+
+```
+<style type="text/css">
+.forceBreak { -webkit-column-break-after: always; break-after: column; }
+</style>
+```
+
+<center>
+The above `.forceBreak` can also be added to a separate CSS file.
+</center>
+
+## Rmarkdown slides learning activity
+
+1. Initialise an R presentation
+2. Add an introductory slide to your presentation
+3.  Add a slide printing data or model output
+4. Add a slide showing a table or figure 
+5. Add a slide with two columns of text 
+
 # Using shiny with Rmarkdown
 
-## Shiny plot of the Bumpus data {.smaller}
+## Introducing the shiny package
+
+To make a Shiny app, or to incorporate shiny into an Rmarkdown presentation, first install the following packages.
+
+```{r, eval = FALSE}
+install.packages("shiny");
+install.packages("rsconnect");
+```
+
+Shiny can be used [to do many things](https://shiny.rstudio.com/gallery/). Two ways of using shiny are especially useful.
+
+1. Creating web apps to showcase data or model results
+2. Embedding data or model results into slides
+
+A simple example with the Bumpus data set demonstrates both 1 and 2.
+
+
+## Shiny plot of the Bumpus data (web app) {.smaller}
+
+```{r, echo = TRUE, eval = FALSE}
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+   # Application title
+   titlePanel("Histograms of Bumpus measurements"),
+   # Sidebar with a slider input for number of bins 
+   sidebarLayout(
+      sidebarPanel(
+          radioButtons(inputId = "radio", label = "",
+                       choices = list("Humerus"     = 7, 
+                                      "Femur"       = 8,
+                                      "Tibiotarsus" = 9,
+                                      "Skull"       = 10,
+                                      "Sternum"     = 11),
+                       inline   = FALSE, 
+                       width    = '800px', 
+                       selected = 7)
+      ),
+      
+      # Show a plot of the generated distribution
+      mainPanel(
+         plotOutput("bumpusplot")
+      )
+   )
+);
+```
+
+## Shiny plot of the Bumpus data (web app) {.smaller}
+
+Immediately after the user interface, we need to define the server (in the same R file).
+
+```{r, echo = TRUE, eval = FALSE}
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+   dat <- read.csv(file = "../data/Bumpus_data.csv");
+   output$bumpusplot <- renderPlot({
+       n_col <- as.numeric(input$radio);
+       par(mar = c(5, 5, 1, 1));
+       hist(x = dat[, n_col], main = "", xlab = "Measurement value (mm)",
+            ylab = "Frequency", cex.lab = 1.5, cex.axis = 1.5, col = "blue");
+   })
+}
+```
+
+The `shinyApp` function gets run at the very end of [the R file](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/shiny_app/app.R).
+
+```{r, echo = TRUE, eval = FALSE}
+# Run the application 
+shinyApp(ui = ui, server = server);
+```
+
+Shiny application code can be [massive](https://github.com/ConFooBio/gmse/blob/master/R/gmse_gui.R#L25), creating [multi-tab inputs and outputs](https://bradduthie.shinyapps.io/gmse_gui/). To publish your application online, sign up for a free account at [shinyapps.io](https://www.shinyapps.io/).
+
+
+## Shiny plot of the Bumpus data (slides) {.smaller}
+
+To turn an Rmarkdown presentation into a shiny presentation, add the `runtime: shiny` option in the YAML header.
+
+<pre><code>
+    ---
+    title: "Introduction to Rmarkdown"
+    subtitle: "https://bradduthie.shinyapps.io/IAPETUS_talk/#1"
+    author: "Brad Duthie"
+    date: "22 November 2018"
+    output: 
+        ioslides_presentation: 
+            logo: images/IAPETUSnewlogo.png
+        widescreen: yes
+        fig_width: 5
+        fig_height: 5
+    runtime: shiny
+    ---
+</code></pre>
+
+
+A shiny presentation can also be published at [shinyapps.io](https://www.shinyapps.io/).
+
+
+## Shiny plot of the Bumpus data (slides) {.smaller}
 
 ```{r, echo = TRUE, eval = FALSE}
 # This code goes into the Rmarkdown file to make the next slide
@@ -1299,7 +1450,7 @@ renderPlot({
 ```
 
 
-## Shiny plot of the Bumpus data {.smaller}
+## Shiny plot of the Bumpus data (slides) {.smaller}
 
 ```{r, echo = FALSE}
 inputPanel(
@@ -1325,4 +1476,31 @@ renderPlot({
 <center>
 **Shiny [gallery](https://shiny.rstudio.com/gallery/) includes example code that can be copied and used.**
 </center>
+
+
+
+
+
+
+
+
+
+
+## Resources for Rmarkdown and shiny
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
