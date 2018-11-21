@@ -437,13 +437,13 @@ mate_connect <- function(ID){
 
 | Time             | Activity                                                |
 | ---------------- | ------------------------------------------------------- |
-| 14:00 -- 14:30   | Presentation introducing Rmarkdown (14:00-14:30)        |
-| 14:30 -- 15:00   | Getting started with knitr and references (14:30-15:00) |
-| 15:00 -- 15:20   | Integrating R analysis (15:00-15:20)                    |
-| 15:20 -- 16:00   | Self-guided writing with Rmarkdown (15:20-16:00)        |
-| 16:00 -- 16:30   | Tea break (16:00-16:30)                                 |
-| 16:30 -- 17:00   | Creating presentations (17:00-17:30)                    |
-| 17:00 -- 18:00   | Adding shiny to Rmarkdown (17:30-18:00)                 |
+| 14:00 -- 14:30   | Presentation introducing Rmarkdown                      |
+| 14:30 -- 15:00   | Getting started with knitr and references               |
+| 15:00 -- 15:20   | Integrating R analysis                                  |
+| 15:20 -- 16:00   | Self-guided writing with Rmarkdown                      |
+| 16:00 -- 16:30   | Tea break                                               |
+| 16:30 -- 17:00   | Creating presentations                                  |
+| 17:00 -- 18:00   | Adding shiny to Rmarkdown                               |
 
 
 ## Objectives for today
@@ -1341,6 +1341,52 @@ Shiny can be used [to do many things](https://shiny.rstudio.com/gallery/). Two w
 A simple example with the Bumpus data set demonstrates both 1 and 2.
 
 
+## How does shiny work?
+
+<div class="columns-2">
+
+- Two components are needed for a shiny app
+    1. User interface (`ui`)
+    2. Server function (`server`)
+    
+- The `input` and `output` are connected in the UI
+
+- The `server` responds reactively to `input$name`
+    - Re-runs with `input` *very* frequently
+    - Runs when inputs updated
+  
+<br>
+
+<p class="forceBreak"></p>
+<center>
+![](images/shiny.png)
+</center>
+</div>
+
+## How does shiny work?
+
+<div class="columns-2">
+
+- Two components are needed for a shiny app
+    1. User interface (`ui`)
+    2. Server function (`server`)
+
+- The `input` and `output` are connected in the UI
+
+- The `server` responds reactively to `input$name`
+    - Re-runs with `input` *very* frequently
+    - Runs when inputs updated
+
+<p class="forceBreak"></p>
+
+The details are not important for using shiny, but it's generally good to understand the following:
+
+- The relationship between the `ui` and the `server`
+- That the `server` receives `input` and returns `output` (usually)
+
+
+</div>
+
 ## Shiny plot of the Bumpus data (web app) {.smaller}
 
 ```{r, echo = TRUE, eval = FALSE}
@@ -1478,23 +1524,39 @@ renderPlot({
 **Shiny [gallery](https://shiny.rstudio.com/gallery/) includes example code that can be copied and used.**
 </center>
 
+## Shiny learning activity
 
+<div class="columns-2">
+
+1. Create a basic shiny web app 
+    - Use [a different input type](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/) than radio buttons
+    - Return output in the form of a plot or table
+    
+2. Add the same app as above to your Rmarkdown slides
+
+<p class="forceBreak"></p>
+<center>
+![](images/shiny.png)
+</center>
+</div>
 
 ## Resources for Rmarkdown and shiny
 
+### Rmarkdown
 
 
+- [Stirling coding club Rmarkdown notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html)
+- [Edinburgh coding club Rmarkdown tutorial](https://ourcodingclub.github.io/2016/11/24/rmarkdown-1.html)
+- [Rmarkdown syntax guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [Rmarkdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
 
+### Shiny
 
-
-
-
-
-
-
-
-
-
+- [Edinburgh coding club Shiny tutorial](https://ourcodingclub.github.io/2017/03/07/shiny.html)
+- [Shiny Apps (publish and share shiny)](http://www.shinyapps.io/)
+- [Rstudio's shiny tutorial](https://shiny.rstudio.com/tutorial/)
+- [Review of the basics of a shiny app](https://shiny.rstudio.com/articles/basics.html)
+- [Shiny cheat sheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
