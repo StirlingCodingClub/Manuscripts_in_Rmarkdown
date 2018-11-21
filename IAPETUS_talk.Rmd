@@ -1231,6 +1231,7 @@ Everything needed for writing a manuscript is available [on GitHub](https://gith
 - Comments (within Rmd)
 - Links and linked references
 - Tables
+- Example [HTML](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/ms.html), [PDF](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/blob/master/ms.pdf), & [DOCX](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/raw/master/ms.docx)
 
 </div>
 
@@ -1254,7 +1255,7 @@ Everything needed for writing a manuscript is available [on GitHub](https://gith
 - YAML file includes ioslides, beamer, & slidy options
     - More difficult to switch between types
     - ioslides & slidy create HTML
-    - beamer creates PDF output
+    - beamer creates [PDF output](https://bradduthie.github.io/dungfly/ECCB_talk/Duthie_ECCB.pdf)
     - ioslides works with shiny
 
 - The current slides are run with ioslides
@@ -1476,13 +1477,6 @@ renderPlot({
 <center>
 **Shiny [gallery](https://shiny.rstudio.com/gallery/) includes example code that can be copied and used.**
 </center>
-
-
-
-
-
-
-
 
 
 
