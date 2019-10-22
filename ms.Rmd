@@ -4,15 +4,15 @@ author: "Brad Duthie"
 date: Biological and Environmental Sciences, University of Stirling, Stirling, UK,
   FK9 4LA
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document:
     reference_docx: docx_template.docx
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
-- \fancyhead[L]{MANUSCRIPT AUTHORS}
-- \fancyhead[R]{MANUSCRIPT SHORT TITLE}
+- \fancyhead[L]{DUTHIE, AB}
+- \fancyhead[R]{SPARROW BODY LENGTH DECREASES SURVIVAL}
 - \usepackage{lineno}
 - \linenumbers
 linestretch: 2
@@ -31,7 +31,7 @@ Writing documents in Rmarkdown using Rstudio can make scientific workflow more e
 Introduction
 ================================================================================
 
-In the late 1800s, there was a particulalry severe snowstorm in Providence, Rhode Island. At the time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic data set in biology, and have been analysed multiple times [e.g., @Johnston1972]. Here I will use Bumpus' data to demonstrate how to write a scientific manuscript in Rmarkdown.
+In the late 1800s, there was a particularly severe snowstorm in Providence, Rhode Island. At the time, Herman Bumpus was a professor of comparative zoology at Brown University. Bumpus noticed that the storm had a particularly negative effect on the local sparrow population (*Passer domesticus*) and decided to use the event to test Charle's Darwin's theory of natural selection [@Darwin1859]. Bumpus collected 136 sparrows; some of these sparrows survived the storm, while others perished. @Bumpus1898 published a paper and all of the data that he had collected. These data are now a classic data set in biology, and have been analysed multiple times [e.g., @Johnston1972]. Here I will use Bumpus' data to demonstrate how to write a scientific manuscript in Rmarkdown.
 
 The focus of this manuscript is therefore not on Bumpus' data or survival of sparrows *per se*, but the process of scientific writing using Rmarkdown. I have chosen the Bumpus data set because it provides a useful tool for working through most key features of Rmarkdown that scientists might want to use when writing a manuscript. The example question that I will address through this data set and R analysis in Rmarkdown is whether or not increasing sparrow body length is associated with decreased survival following a storm.
 

@@ -1,125 +1,22 @@
 ---
 title: "Manuscripts in Rmarkdown"
 author: "Brad Duthie"
-date: "31 October 2018"
+date: "23 October 2019"
 output:
-  ioslides_presentation:
-    logo: images/SCC_Logo_slide_sm.png
-  beamer_presentation: default
+  powerpoint_presentation: default
+  ioslides_presentation: default
+  beamer_presentation:
+    theme: "default"
+    colortheme: "default"
+    fonttheme: "default"
   slidy_presentation: default
+header-includes:
+- \usepackage{hyperref}
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
 ---
 
-
-<style type="text/css">
-body p {
-  color: #000000;
-}
-ul {
-  color: black;
-}
-ol {
-  color: black;
-}
-a {
-    color: darkblue;
-    text-decoration: none
-}
-.fifty {
-   font-size: 50%;
-   }
-.seventy {
-   font-size: 70%;
-   }
-slides > slide.backdrop {
-  background: none !important;
-  background-color: white !important;
-}
-slides > slide.title-slide hgroup h1 {
-  color: black;
-}
-slides > slide.title-slide p {
-  color: black;
-}
-slides > slide.light > hgroup h2 {
-  color: black;
-}
-slides > slide.light > hgroup h1 {
-  color: black;
-}
-ul {
-  color: black;
-}
-ol {
-  color: black;
-}
-p {
-  color: black
-}
-h1, h2, h3, h4, h5, h6, h7, h8, p {
-    color: black;
-}
-</style>
-
-## Stirling Coding Club (SCC) on GitHub
-
-**A lot of learning & discussion in SCC occurs on line in [GitHub](http://github.com).**
-
-<hr>
-
-<div class="columns-2" style="margin-top:30px; margin-bottom:30px; margin-left:40px">
-
-![](images/github_logo.png)
-
-- [Full notes](https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html) are available online
-- [Repository](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown) to see all today's code
-- [Issues](https://github.com/StirlingCodingClub/Manuscripts_in_Rmarkdown/issues) online to ask questions
-
-</div>
-
-<hr>
-
-**If you are not yet signed up, go to [http://github.com/join](http://github.com/join), then contact [Brad](https://bradduthie.github.io/) or [Anna](https://www.stir.ac.uk/people/266756).**
-
-
-
-## Stirling Coding Club (SCC) on GitHub {.smaller}
-
-**This slide presentation is available in the link below**
-
-<hr>
-
-https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/presentation.html
-
-<br>
-<hr>
-<div class="columns-2">
-
-- **Students and educators can sign up for a [GitHub Education](https://education.github.com/pack) package, which includes a lot of free coding software**
-- [GitHub](http://github.com) unlimited free private repositories (usually 7 USD per month)
-- [GitKraken](http://gitkraken.com) free pro account (usually 49 USD per year)
-
-![](images/gitkraken.png)
-
-</div>
-
-<hr>
-
-## Edinburgh Coding Club Invitation
-
-Stirling Coding Club participants are invited to take part in upcoming [workshops at the University of Edinburgh](https://ourcodingclub.github.io/).
-
-<hr>
-
-- **7 NOV 2018: 15:00-17:00**. Introduction to mixed effects models.
-- **21 NOV 2018: 15:00-17:00**. Bayesian meta-analysis (uses the MCMCglmm package)
-- **5 DEC 2018: 15:00-17:00**. Introduction to [Integrated Nested Laplace Approximations](https://inla.r-inla-download.org/r-inla.org/papers/inla-rss.pdf) (INLA) with R (spatial autocorrelation and mixed models).
-
-<hr>
-<center>
-
-**[https://ourcodingclub.github.io](https://ourcodingclub.github.io)**
-
-</center>
 
 ## Objectives for learning Rmarkdown
 
@@ -135,7 +32,7 @@ Stirling Coding Club participants are invited to take part in upcoming [workshop
 
 ## Where did Rmarkdown come from?
 
-| Microsoft Word (1983)          |  $\LaTeX{}$ (1980)                     |
+| Microsoft Word (1983)          |  \LaTeX (1980)                     |
 | ------------------------------ | --------------------------------- |
 | - Used in the life sciences    | - Used in maths and physics       |
 | - What you see is what you get | - Edit files in [plain text](https://en.wikipedia.org/wiki/LaTeX) (code) |
