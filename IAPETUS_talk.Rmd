@@ -1064,7 +1064,7 @@ author = {Bumpus, Hermon C},
 journal = {Biological Lectures: Woods Hole Marine Biological Laboratory},
 pages = {209--225},
 title = {{Eleventh lecture. The elimination of the unfit as illustrated by the introduced sparrow, 
-{\it Passer domesticus}. (A fourth contribution to the study of variation.)}},
+Passer domesticus. (A fourth contribution to the study of variation.) }},
 year = {1898}
 }
 @book{Darwin1859,
