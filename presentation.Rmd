@@ -2,7 +2,7 @@
 title: "Manuscripts in Rmarkdown"
 subtitle: https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html
 author: "Brad Duthie"
-date: "23 October 2019"
+date: "23 February 2022"
 output:
   beamer_presentation:
     theme: "default"

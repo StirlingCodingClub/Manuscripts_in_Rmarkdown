@@ -542,8 +542,8 @@ snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The
 central horizontal line shows median values. Boxes and whiskers show inter-quartile 
 ranges and extreme values, respectively."}
 par(mar = c(5, 5, 1, 1));
-plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
-     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+plot(x = as.factor(dat$surv), y = dat$totlen, cex.axis = 1.5, lwd = 2, 
+     xlab = "", ylab = "Total Sparrow Length (mm)", cex.lab = 1.5, main = "");
 '''
 ```
 
@@ -553,8 +553,8 @@ The option `echo = FALSE` in this case tells Rmarkdown not to print the code its
 
 ```{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
 par(mar = c(5, 5, 1, 1));
-plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2, xlab = "",
-     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5, main = "");
+plot(x = as.factor(dat$surv), y = dat$totlen, cex.axis = 1.5, lwd = 2, 
+     xlab = "", ylab = "Total Sparrow Length (mm)", cex.lab = 1.5, main = "");
 ```
 
 ********************************************************************************
