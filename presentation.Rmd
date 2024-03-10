@@ -1,8 +1,8 @@
 ---
 title: "Manuscripts in Rmarkdown"
-subtitle: https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/Rmarkdown_notes.html
+subtitle: https://stirlingcodingclub.github.io/Manuscripts_in_Rmarkdown/
 author: "Brad Duthie"
-date: "23 February 2022"
+date: "08 February 2023"
 output:
   beamer_presentation:
     theme: "default"

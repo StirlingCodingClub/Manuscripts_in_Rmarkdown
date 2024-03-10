@@ -5,9 +5,9 @@ date: Biological and Environmental Sciences, University of Stirling, Stirling, U
   FK9 4LA
 output:
   pdf_document: default
-  html_document: default
   word_document:
     reference_docx: docx_template.docx
+  html_document: default
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
@@ -15,6 +15,7 @@ header-includes:
 - \fancyhead[R]{SPARROW BODY LENGTH DECREASES SURVIVAL}
 - \usepackage{lineno}
 - \linenumbers
+- \usepackage[misc]{ifsym}
 linestretch: 2
 link-citations: yes
 linkcolor: blue
@@ -84,14 +85,15 @@ Figure 2 shows the difference between total length in sparrows that survived ver
 
 ```{r, echo = FALSE, eval = TRUE, fig.width = 5, fig.height = 5, fig.cap = "Box plot of the total lengths of live and dead sparrows following a snowstorm in Providence, RI, as originally collected by Hermon Bumpus. The central horizontal line shows median values. Boxes and whiskers show inter-quartile ranges and extreme values, respectively."}
 par(mar = c(5, 5, 1, 1));
-plot(x = dat$surv, y = dat$totlen, cex.axis = 1.5, lwd = 2,
-     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5);
+plot(x = as.factor(dat$surv), y = dat$totlen, cex.axis = 1.5, lwd = 2,
+     ylab = "Total Sparrow Length (mm)", cex.lab = 1.5, 
+     xlab = "Sparrow status");
 ```
 
 Discussion
 ================================================================================
 
-I have analysed data collected by Herman Bumpus [@Bumpus1898] on the relationship between sparrow (*Passer domesticus*) total length and surival following an unusually severe storm. I found that sparrows that died in the storm were longer than sparrows that survived, which suggests that higher sparrow body length decreased survival. Of course, it is not possible to definitively conclude a causal relationship between any aspect of body size and sparrow survival<!--- BD Note: maybe explain this better --->, and even the available data collected by Bumpus would permit a more thoughtful analysis than that conducted in this study (see [Appendix Table 1](#appendix)). 
+I have analysed data collected by Herman Bumpus [@Bumpus1898] on the relationship between sparrow (*Passer domesticus*) total length and surival following an unusually severe storm. I found that sparrows that died in the storm were longer than sparrows that survived, which suggests that higher sparrow body length decreased survival. Of course, it is not possible to definitively conclude a causal relationship between any aspect of body size and sparrow survival <!--- BD Note: maybe explain this better --->, and even the available data collected by Bumpus would permit a more thoughtful analysis than that conducted in this study (see [Appendix Table 1](#appendix)). 
 
 <!---
 

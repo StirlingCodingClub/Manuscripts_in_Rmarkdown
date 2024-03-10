@@ -11,7 +11,7 @@
 
 <meta name="author" content="Brad Duthie" />
 
-<meta name="date" content="2023-02-08" />
+<meta name="date" content="2024-03-14" />
 
 <title>Manuscripts in Rmarkdown</title>
 
@@ -322,8 +322,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -331,16 +331,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -387,7 +380,7 @@ pre code {
 
 <h1 class="title toc-ignore">Manuscripts in Rmarkdown</h1>
 <h4 class="author">Brad Duthie</h4>
-<h4 class="date">08 February 2023</h4>
+<h4 class="date">14 March 2024</h4>
 
 </div>
 
