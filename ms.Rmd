@@ -57,7 +57,7 @@ In the above, $\bar{X}_{1}$ and $\bar{X}_{2}$ are the mean of the samples of spa
 
 $$s_{p} = \sqrt{\frac{s^{2}_{X_{1}} + s^{2}_{X_{2}}}{2}}.$$
 
-In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conduceted the two sample t-test using the `t.test` function in R [@R2018].
+In the above, the $s^{2}_{X_{1}}$ and $s^{2}_{X_{2}}$ are the sample standard deviations for sparrows that died and lived, respectively. I conducted the two sample t-test using the `t.test` function in R [@R2018].
 
 Results
 ===============================================================================

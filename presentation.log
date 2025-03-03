@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.5.20)  8 FEB 2023 11:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  14 MAR 2024 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -702,32 +702,23 @@ Package microtype Info: Loading configuration file microtype.cfg.
 File: microtype.cfg 2021/12/10 v3.0b microtype main configuration file (RS)
 )) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
-) (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
-Package: xurl 2022/01/09 v 0.10 modify URL breaks
-) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
-Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
-(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
-File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count340
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 86.
-(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip68
 \LTright=\skip69
 \LTpre=\skip70
 \LTpost=\skip71
-\LTchunksize=\count341
+\LTchunksize=\count340
 \LTcapwidth=\dimen289
 \LT@head=\box77
 \LT@firsthead=\box78
 \LT@foot=\box79
 \LT@lastfoot=\box80
 \LT@gbox=\box81
-\LT@cols=\count342
-\LT@rows=\count343
-\c@LT@tables=\count344
-\c@LT@chunks=\count345
+\LT@cols=\count341
+\LT@rows=\count342
+\c@LT@tables=\count343
+\c@LT@chunks=\count344
 \LT@p@ftn=\toks48
 ) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -741,12 +732,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen297
 \cmidrulekern=\dimen298
 \defaultaddspace=\dimen299
-\@cmidla=\count346
-\@cmidlb=\count347
+\@cmidla=\count345
+\@cmidlb=\count346
 \@aboverulesep=\dimen300
 \@belowrulesep=\dimen301
-\@thisruleclass=\count348
-\@lastruleclass=\count349
+\@thisruleclass=\count347
+\@lastruleclass=\count348
 \@thisrulewidth=\dimen302
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
@@ -773,8 +764,8 @@ Package caption Info: beamer document class detected.
 File: caption-beamer.sto 2020/08/22 v2.0 Adaption of the caption package to the
  beamer document classes (AR)
 ))
-\c@caption@flags=\count350
-\c@continuedfloat=\count351
+\c@caption@flags=\count349
+\c@continuedfloat=\count350
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
@@ -785,6 +776,15 @@ Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 \cslhangindent=\skip74
 \csllabelwidth=\skip75
 \cslentryspacingunit=\skip76
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count351
+)) (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 139.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\begingroup' on input line 146.
@@ -1377,7 +1377,7 @@ Package pdftex.def Info: images/Rstudio_toolbar.png  used on input line 25.
 Here is how much of TeX's memory you used:
  26306 strings out of 478287
  505464 string characters out of 5849289
- 814777 words of memory out of 5000000
+ 814780 words of memory out of 5000000
  43810 multiletter control sequences out of 15000+600000
  510487 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1389,7 +1389,7 @@ fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/font
 s/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pf
 b></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on presentation.pdf (26 pages, 177153 bytes).
+Output written on presentation.pdf (26 pages, 177145 bytes).
 PDF statistics:
  273 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
