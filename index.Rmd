@@ -1,10 +1,10 @@
 ---
 title: "Manuscripts in Rmarkdown"
 author: "Brad Duthie"
-date: "4 March 2025"
+date: "4 March 2026"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 link-citations: yes
 linkcolor: blue
 bibliography: notes_refs.bib

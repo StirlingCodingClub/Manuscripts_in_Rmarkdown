@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.5.31)  14 MAR 2024 14:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.15)  4 MAR 2025 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1377,7 +1377,7 @@ Package pdftex.def Info: images/Rstudio_toolbar.png  used on input line 25.
 Here is how much of TeX's memory you used:
  26306 strings out of 478287
  505464 string characters out of 5849289
- 814780 words of memory out of 5000000
+ 814777 words of memory out of 5000000
  43810 multiletter control sequences out of 15000+600000
  510487 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1389,7 +1389,7 @@ fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/font
 s/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pf
 b></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on presentation.pdf (26 pages, 177145 bytes).
+Output written on presentation.pdf (26 pages, 177142 bytes).
 PDF statistics:
  273 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
